@@ -1,0 +1,28 @@
+{
+  "name": "patrimonium",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "update-macro": "node fetch-macro.mjs",
+    "update-anbima": "node fetch-anbima.mjs",
+    "update-all": "node fetch-macro.mjs && node fetch-anbima.mjs",
+    "pdf": "node scripts/generate-pdf.mjs",
+    "pdf:watermark": "node scripts/generate-pdf.mjs --watermark CONFIDENCIAL"
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "recharts": "^2.13.0"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "puppeteer": "^24.39.1",
+    "vite": "^6.0.0"
+  }
+}
