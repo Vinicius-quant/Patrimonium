@@ -1,0 +1,1792 @@
+{
+  "_INSTRUCOES": "=== COMO ATUALIZAR ===  Edite este arquivo todo mês com os dados do relatório XP. Os dados macro são buscados automaticamente pelo script 'npm run update-macro'.",
+  "referencia": "27/02/2026",
+  "geradoEm": "13/03/2026",
+  "assessor": "Vinicius Silva",
+  "banker": "Renan Hamilko",
+  "clienteLabel": "Jussara Cardoso Portela",
+  "empresas": [
+    {
+      "nome": "Conta 6055612",
+      "conta": "6055612",
+      "tipo": "Private",
+      "patrimonio": 1291128.59,
+      "rentMes": 1.07,
+      "ganhoMes": 12149.27,
+      "pctCDI": 107.38,
+      "rentAno": 2.28,
+      "pctCDIAno": 104.94,
+      "rent2025": 14.9,
+      "pctCDI2025": 102.76,
+      "acumulado": 17.52,
+      "volatilidade": 0.45,
+      "mesesPositivos": 24,
+      "mesesNegativos": 0,
+      "mesesAcimaCDI": 19,
+      "mesesAbaixoCDI": 5,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": 1.38,
+          "pctCDI": 143.25
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 1.67,
+          "pctCDI": 158.52
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 1.28,
+          "pctCDI": 112.8
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 1.12,
+          "pctCDI": 101.76
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.35,
+          "pctCDI": 105.79
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 1.1,
+          "pctCDI": 94.17
+        },
+        {
+          "mes": "Set/25",
+          "rent": 1.21,
+          "pctCDI": 99.53
+        },
+        {
+          "mes": "Out/25",
+          "rent": 1.31,
+          "pctCDI": 102.31
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 1.02,
+          "pctCDI": 96.75
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 1.23,
+          "pctCDI": 101.1
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 1.2,
+          "pctCDI": 102.79
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 1.07,
+          "pctCDI": 107.38
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 1155836.81
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 1173285.2
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 1177210.27
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 1188606.47
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 1202561.72
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 1213704.53
+        },
+        {
+          "mes": "Set/25",
+          "pat": 1226558.32
+        },
+        {
+          "mes": "Out/25",
+          "pat": 1240715.43
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 1251904.1
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 1265559.28
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 1278979.32
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 1291128.59
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 59.72,
+          "valor": 771035.7
+        },
+        {
+          "nome": "Inflação",
+          "pct": 40.16,
+          "valor": 518560.78
+        },
+        {
+          "nome": "Caixa",
+          "pct": 0.12,
+          "valor": 1532.11
+        }
+      ]
+    },
+    {
+      "nome": "Conta 5751663",
+      "conta": "5751663",
+      "tipo": "Private",
+      "patrimonio": 2518205.37,
+      "rentMes": 0.91,
+      "ganhoMes": 20777.98,
+      "pctCDI": 91.72,
+      "rentAno": 1.93,
+      "pctCDIAno": 89.04,
+      "rent2025": 12.56,
+      "pctCDI2025": 86.62,
+      "acumulado": 14.73,
+      "volatilidade": 0.67,
+      "mesesPositivos": 24,
+      "mesesNegativos": 0,
+      "mesesAcimaCDI": 11,
+      "mesesAbaixoCDI": 13,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": 1.37,
+          "pctCDI": 142.47
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 1.12,
+          "pctCDI": 105.87
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 1.06,
+          "pctCDI": 93.3
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 0.85,
+          "pctCDI": 77.76
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.1,
+          "pctCDI": 86.03
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 0.78,
+          "pctCDI": 66.83
+        },
+        {
+          "mes": "Set/25",
+          "rent": 0.96,
+          "pctCDI": 78.78
+        },
+        {
+          "mes": "Out/25",
+          "rent": 0.99,
+          "pctCDI": 77.61
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 0.81,
+          "pctCDI": 76.71
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 1.01,
+          "pctCDI": 82.6
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 1.01,
+          "pctCDI": 86.83
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 0.91,
+          "pctCDI": 91.72
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 2318698.86
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 2341931.29
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 2338772.33
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 2356624.62
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 2379873.96
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 2393411.52
+        },
+        {
+          "mes": "Set/25",
+          "pat": 2414125.17
+        },
+        {
+          "mes": "Out/25",
+          "pat": 2435628.42
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 2453556.32
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 2476042.47
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 2498814.57
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 2518205.37
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 39.03,
+          "valor": 982972.22
+        },
+        {
+          "nome": "Inflação",
+          "pct": 60.44,
+          "valor": 1521999.51
+        },
+        {
+          "nome": "Caixa",
+          "pct": 0.53,
+          "valor": 13233.64
+        }
+      ]
+    },
+    {
+      "nome": "Conta 3149413",
+      "conta": "3149413",
+      "tipo": "Private",
+      "patrimonio": 6371745.9,
+      "rentMes": 0.72,
+      "ganhoMes": 43798.5,
+      "pctCDI": 72.6,
+      "rentAno": 1.54,
+      "pctCDIAno": 70.86,
+      "rent2025": 12.19,
+      "pctCDI2025": 84.07,
+      "acumulado": 13.79,
+      "volatilidade": 3.91,
+      "mesesPositivos": 21,
+      "mesesNegativos": 3,
+      "mesesAcimaCDI": 11,
+      "mesesAbaixoCDI": 13,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": -0.68,
+          "pctCDI": -70.7
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 0.8,
+          "pctCDI": 75.72
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 2.34,
+          "pctCDI": 205.47
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 1.86,
+          "pctCDI": 169.72
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.28,
+          "pctCDI": 100.3
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 1.08,
+          "pctCDI": 92.88
+        },
+        {
+          "mes": "Set/25",
+          "rent": 1.51,
+          "pctCDI": 123.45
+        },
+        {
+          "mes": "Out/25",
+          "rent": 0.99,
+          "pctCDI": 77.79
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 0.52,
+          "pctCDI": 48.93
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 0.85,
+          "pctCDI": 69.72
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 0.81,
+          "pctCDI": 69.58
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 0.72,
+          "pctCDI": 72.6
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 5382013.69
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 5421722.4
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 5510524.43
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 5599220.75
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 5667932.47
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 5722812.26
+        },
+        {
+          "mes": "Set/25",
+          "pat": 5806617.1
+        },
+        {
+          "mes": "Out/25",
+          "pat": 5861883.43
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 6283250.63
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 6300551.48
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 6327947.4
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 6371745.9
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 38.09,
+          "valor": 2427105.72
+        },
+        {
+          "nome": "Inflação",
+          "pct": 27.7,
+          "valor": 1764877.86
+        },
+        {
+          "nome": "Pré Fixado",
+          "pct": 6.9,
+          "valor": 439745.73
+        },
+        {
+          "nome": "Multimercado",
+          "pct": 5.7,
+          "valor": 363284.34
+        },
+        {
+          "nome": "Alternativo",
+          "pct": 2.95,
+          "valor": 187856.69
+        },
+        {
+          "nome": "RV Global",
+          "pct": 13.16,
+          "valor": 838527.88
+        },
+        {
+          "nome": "Fundos Listados",
+          "pct": 1.11,
+          "valor": 70848.0
+        },
+        {
+          "nome": "Caixa",
+          "pct": 4.39,
+          "valor": 279499.68
+        }
+      ]
+    },
+    {
+      "nome": "Conta 9026051",
+      "conta": "9026051",
+      "tipo": "Regular",
+      "patrimonio": 1670167.2,
+      "rentMes": 0.95,
+      "ganhoMes": 15681.01,
+      "pctCDI": 94.94,
+      "rentAno": 2.03,
+      "pctCDIAno": 93.64,
+      "rent2025": 12.53,
+      "pctCDI2025": 86.41,
+      "acumulado": 14.82,
+      "volatilidade": 0.21,
+      "mesesPositivos": 23,
+      "mesesNegativos": 1,
+      "mesesAcimaCDI": 10,
+      "mesesAbaixoCDI": 14,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": 1.48,
+          "pctCDI": 153.58
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 1.07,
+          "pctCDI": 101.67
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 1.01,
+          "pctCDI": 88.62
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 0.8,
+          "pctCDI": 72.83
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.01,
+          "pctCDI": 79.18
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 0.72,
+          "pctCDI": 62.26
+        },
+        {
+          "mes": "Set/25",
+          "rent": 0.78,
+          "pctCDI": 63.58
+        },
+        {
+          "mes": "Out/25",
+          "rent": 1.15,
+          "pctCDI": 90.53
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 0.9,
+          "pctCDI": 85.21
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 1.1,
+          "pctCDI": 90.54
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 1.08,
+          "pctCDI": 92.58
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 0.95,
+          "pctCDI": 94.94
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 1523698.87
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 1540056.12
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 1554205.87
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 1566614.51
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 1582439.91
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 1589648.63
+        },
+        {
+          "mes": "Set/25",
+          "pat": 1589608.48
+        },
+        {
+          "mes": "Out/25",
+          "pat": 1607967.59
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 1622385.77
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 1640305.37
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 1657984.75
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 1670167.2
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 48.42,
+          "valor": 808628.17
+        },
+        {
+          "nome": "Inflação",
+          "pct": 39.36,
+          "valor": 657324.55
+        },
+        {
+          "nome": "Pré Fixado",
+          "pct": 11.24,
+          "valor": 187721.28
+        },
+        {
+          "nome": "Caixa",
+          "pct": 0.99,
+          "valor": 16493.2
+        }
+      ]
+    },
+    {
+      "nome": "Conta 8333983",
+      "conta": "8333983",
+      "tipo": "Regular",
+      "patrimonio": 1833537.8,
+      "rentMes": 0.99,
+      "ganhoMes": 17905.81,
+      "pctCDI": 98.91,
+      "rentAno": 2.12,
+      "pctCDIAno": 97.47,
+      "rent2025": 12.49,
+      "pctCDI2025": 86.14,
+      "acumulado": 14.87,
+      "volatilidade": 0.15,
+      "mesesPositivos": 24,
+      "mesesNegativos": 0,
+      "mesesAcimaCDI": 11,
+      "mesesAbaixoCDI": 13,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": 1.14,
+          "pctCDI": 118.22
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 1.02,
+          "pctCDI": 97.04
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 1.06,
+          "pctCDI": 93.51
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 0.88,
+          "pctCDI": 80.35
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.13,
+          "pctCDI": 88.36
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 0.84,
+          "pctCDI": 71.78
+        },
+        {
+          "mes": "Set/25",
+          "rent": 0.93,
+          "pctCDI": 76.26
+        },
+        {
+          "mes": "Out/25",
+          "rent": 1.18,
+          "pctCDI": 92.25
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 0.92,
+          "pctCDI": 87.32
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 1.09,
+          "pctCDI": 89.6
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 1.12,
+          "pctCDI": 96.26
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 0.99,
+          "pctCDI": 98.91
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 1248719.22
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 1259679.57
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 1250685.18
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 1261701.5
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 1275924.2
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 1284865.8
+        },
+        {
+          "mes": "Set/25",
+          "pat": 1291067.84
+        },
+        {
+          "mes": "Out/25",
+          "pat": 1304352.45
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 1314798.52
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 1795510.89
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 1815631.98
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 1833537.8
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 56.7,
+          "valor": 1039704.13
+        },
+        {
+          "nome": "Inflação",
+          "pct": 43.3,
+          "valor": 793833.67
+        }
+      ]
+    },
+    {
+      "nome": "Conta 5270730",
+      "conta": "5270730",
+      "tipo": "Regular",
+      "patrimonio": 8385646.34,
+      "rentMes": 0.99,
+      "ganhoMes": 81897.16,
+      "pctCDI": 98.88,
+      "rentAno": 2.21,
+      "pctCDIAno": 101.79,
+      "rent2025": 13.45,
+      "pctCDI2025": 92.76,
+      "acumulado": 15.99,
+      "volatilidade": 0.39,
+      "mesesPositivos": 24,
+      "mesesNegativos": 0,
+      "mesesAcimaCDI": 13,
+      "mesesAbaixoCDI": 11,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": 0.97,
+          "pctCDI": 101.33
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 1.09,
+          "pctCDI": 103.08
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 1.22,
+          "pctCDI": 107.42
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 1.05,
+          "pctCDI": 96.19
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.26,
+          "pctCDI": 98.43
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 1.08,
+          "pctCDI": 92.88
+        },
+        {
+          "mes": "Set/25",
+          "rent": 1.18,
+          "pctCDI": 96.74
+        },
+        {
+          "mes": "Out/25",
+          "rent": 1.29,
+          "pctCDI": 101.23
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 0.95,
+          "pctCDI": 90.04
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 1.2,
+          "pctCDI": 98.29
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 1.21,
+          "pctCDI": 104.27
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 0.99,
+          "pctCDI": 98.88
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 5670928.32
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 5728962.97
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 5760721.71
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 5811209.89
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 5884178.31
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 5932693.43
+        },
+        {
+          "mes": "Set/25",
+          "pat": 6001170.67
+        },
+        {
+          "mes": "Out/25",
+          "pat": 6074908.98
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 6132482.59
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 8210425.24
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 8310086.7
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 8385646.34
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 60.05,
+          "valor": 5035571.53
+        },
+        {
+          "nome": "Inflação",
+          "pct": 36.14,
+          "valor": 3030868.17
+        },
+        {
+          "nome": "Multimercado",
+          "pct": 1.39,
+          "valor": 116294.87
+        },
+        {
+          "nome": "RV Brasil",
+          "pct": 0.63,
+          "valor": 53082.0
+        },
+        {
+          "nome": "RV Global",
+          "pct": 1.47,
+          "valor": 123077.06
+        },
+        {
+          "nome": "Caixa",
+          "pct": 0.3,
+          "valor": 25752.71
+        }
+      ]
+    },
+    {
+      "nome": "Conta 8326376",
+      "conta": "8326376",
+      "tipo": "Regular",
+      "patrimonio": 4134171.58,
+      "rentMes": 0.93,
+      "ganhoMes": 38191.86,
+      "pctCDI": 93.41,
+      "rentAno": 1.99,
+      "pctCDIAno": 91.73,
+      "rent2025": 12.36,
+      "pctCDI2025": 85.24,
+      "acumulado": 14.59,
+      "volatilidade": 0.18,
+      "mesesPositivos": 24,
+      "mesesNegativos": 0,
+      "mesesAcimaCDI": 13,
+      "mesesAbaixoCDI": 11,
+      "movimentacaoMes": 0,
+      "mensal": [
+        {
+          "mes": "Mar/25",
+          "rent": 1.36,
+          "pctCDI": 141.72
+        },
+        {
+          "mes": "Abr/25",
+          "rent": 1.11,
+          "pctCDI": 105.03
+        },
+        {
+          "mes": "Mai/25",
+          "rent": 1.07,
+          "pctCDI": 93.86
+        },
+        {
+          "mes": "Jun/25",
+          "rent": 0.87,
+          "pctCDI": 79.48
+        },
+        {
+          "mes": "Jul/25",
+          "rent": 1.11,
+          "pctCDI": 87.29
+        },
+        {
+          "mes": "Ago/25",
+          "rent": 0.81,
+          "pctCDI": 69.88
+        },
+        {
+          "mes": "Set/25",
+          "rent": 0.97,
+          "pctCDI": 79.51
+        },
+        {
+          "mes": "Out/25",
+          "rent": 1.09,
+          "pctCDI": 85.27
+        },
+        {
+          "mes": "Nov/25",
+          "rent": 0.79,
+          "pctCDI": 75.42
+        },
+        {
+          "mes": "Dez/25",
+          "rent": 1.01,
+          "pctCDI": 83.03
+        },
+        {
+          "mes": "Jan/26",
+          "rent": 1.05,
+          "pctCDI": 90.36
+        },
+        {
+          "mes": "Fev/26",
+          "rent": 0.93,
+          "pctCDI": 93.41
+        }
+      ],
+      "evolucaoPatrimonial": [
+        {
+          "mes": "Mar/25",
+          "pat": 2907901.88
+        },
+        {
+          "mes": "Abr/25",
+          "pat": 2940149.25
+        },
+        {
+          "mes": "Mai/25",
+          "pat": 2966625.05
+        },
+        {
+          "mes": "Jun/25",
+          "pat": 2992470.17
+        },
+        {
+          "mes": "Jul/25",
+          "pat": 3025793.36
+        },
+        {
+          "mes": "Ago/25",
+          "pat": 3039340.03
+        },
+        {
+          "mes": "Set/25",
+          "pat": 3068820.04
+        },
+        {
+          "mes": "Out/25",
+          "pat": 3102204.97
+        },
+        {
+          "mes": "Nov/25",
+          "pat": 3126833.3
+        },
+        {
+          "mes": "Dez/25",
+          "pat": 4061138.18
+        },
+        {
+          "mes": "Jan/26",
+          "pat": 4103857.43
+        },
+        {
+          "mes": "Fev/26",
+          "pat": 4134171.58
+        }
+      ],
+      "estrategia": [
+        {
+          "nome": "Pós Fixado",
+          "pct": 28.72,
+          "valor": 1187263.01
+        },
+        {
+          "nome": "Inflação",
+          "pct": 60.23,
+          "valor": 2490156.45
+        },
+        {
+          "nome": "Pré Fixado",
+          "pct": 10.15,
+          "valor": 419614.35
+        },
+        {
+          "nome": "Caixa",
+          "pct": 0.9,
+          "valor": 37137.77
+        }
+      ]
+    }
+  ],
+  "fundos": [
+    {
+      "nome": "Solis Capital Antares Advisory FIC de FIDC",
+      "curto": "Solis Antares",
+      "tipo": "Fundos",
+      "classe": "Multimercado",
+      "liquidez": "D+61",
+      "conta": "diversas",
+      "diasLiq": 61,
+      "total": 4816183.76,
+      "rentMes": 1.12,
+      "pctCDI": 111.88,
+      "taxaAdmin": 1.5,
+      "taxaPerf": 20,
+      "isentoIR": false
+    },
+    {
+      "nome": "Trend Pós-Fixado FIC RF Simples",
+      "curto": "Trend Pós-Fixado",
+      "tipo": "Fundos",
+      "classe": "Renda Fixa",
+      "liquidez": "Diária",
+      "conta": "diversas",
+      "diasLiq": 0,
+      "total": 18417.76,
+      "rentMes": 0.99,
+      "pctCDI": 99.15,
+      "taxaAdmin": 0.15,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "NTN-B AGO/2028 (IPCA+7.5%)",
+      "curto": "NTN-B AGO/28",
+      "tipo": "Títulos Públicos",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Ago/28",
+      "taxa": "IPCA + 7,50%",
+      "conta": "diversas",
+      "diasLiq": 900,
+      "total": 3180385.68,
+      "rentMes": 0.43,
+      "pctCDI": 43.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "NTN-B MAI/2027 (IPCA+8.4%)",
+      "curto": "NTN-B MAI/27",
+      "tipo": "Títulos Públicos",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Mai/27",
+      "taxa": "IPCA + 8,40%",
+      "conta": "diversas",
+      "diasLiq": 450,
+      "total": 1625611.37,
+      "rentMes": 0.45,
+      "pctCDI": 45.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "LFT SET/2027",
+      "curto": "LFT SET/27",
+      "tipo": "Títulos Públicos",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Set/27",
+      "taxa": "Selic + 0,04%",
+      "conta": "diversas",
+      "diasLiq": 0,
+      "total": 1422021.62,
+      "rentMes": 0.99,
+      "pctCDI": 99.5,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "CDBs Banco XP (diversos venc.)",
+      "curto": "CDBs Banco XP",
+      "tipo": "CDB",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. diversos",
+      "taxa": "100% CDI",
+      "conta": "diversas",
+      "diasLiq": 365,
+      "total": 3346908.98,
+      "rentMes": 1.0,
+      "pctCDI": 100.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "LF Banco C6 Consignado DEZ/2028 107% CDI",
+      "curto": "LF C6 Consig.",
+      "tipo": "LF",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Dez/28",
+      "taxa": "107% CDI",
+      "conta": "diversas",
+      "diasLiq": 1000,
+      "total": 1026469.39,
+      "rentMes": 1.07,
+      "pctCDI": 107.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "Riza Statheros FIC de FIDC",
+      "curto": "Riza Statheros",
+      "tipo": "Fundos",
+      "classe": "Multimercado",
+      "liquidez": "D+87",
+      "conta": "diversas",
+      "diasLiq": 87,
+      "total": 361802.97,
+      "rentMes": 1.13,
+      "pctCDI": 113.75,
+      "taxaAdmin": 1.8,
+      "taxaPerf": 20,
+      "isentoIR": false
+    },
+    {
+      "nome": "LF Daycoval SET/2029 IPCA+6.72%",
+      "curto": "LF Daycoval",
+      "tipo": "LF",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Set/29",
+      "taxa": "IPCA + 6,72%",
+      "conta": "diversas",
+      "diasLiq": 1200,
+      "total": 761383.94,
+      "rentMes": 0.5,
+      "pctCDI": 50.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "LF Bradesco AGO/2026 IPCA+5.01%",
+      "curto": "LF Bradesco",
+      "tipo": "LF",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Ago/26",
+      "taxa": "IPCA + 5,01%",
+      "conta": "diversas",
+      "diasLiq": 150,
+      "total": 480864.8,
+      "rentMes": 0.48,
+      "pctCDI": 48.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "CDB Banco XP FEV/2028 Pré 15.3%",
+      "curto": "CDB XP Pré",
+      "tipo": "CDB",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Fev/28",
+      "taxa": "Pré 15,30%",
+      "conta": "diversas",
+      "diasLiq": 700,
+      "total": 607335.63,
+      "rentMes": 1.2,
+      "pctCDI": 120.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "DEB Enauta JUN/2030 IPCA+8.06%",
+      "curto": "DEB Enauta",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Jun/30",
+      "taxa": "IPCA + 8,06%",
+      "conta": "6055612",
+      "diasLiq": 1500,
+      "total": 438416.64,
+      "rentMes": 1.06,
+      "pctCDI": 105.86,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "COEs e Estruturados (diversas contas)",
+      "curto": "COEs/Estrut.",
+      "tipo": "COE",
+      "classe": "Alternativo",
+      "liquidez": "Venc. diversos",
+      "conta": "diversas",
+      "diasLiq": 730,
+      "total": 1629040.84,
+      "rentMes": -0.10,
+      "pctCDI": -10.0,
+      "taxaAdmin": 0.5,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "DEB Simpar OUT/2028 CDI+2.80%",
+      "curto": "DEB Simpar",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Out/28",
+      "taxa": "CDI + 2,80%",
+      "conta": "5270730",
+      "diasLiq": 900,
+      "total": 305986.23,
+      "rentMes": 1.20,
+      "pctCDI": 119.99,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "DEB Copel Distribuição JUN/2031 IPCA+5.35%",
+      "curto": "DEB Copel",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Jun/31",
+      "taxa": "IPCA + 5,35%",
+      "conta": "5751663",
+      "diasLiq": 1930,
+      "total": 210265.51,
+      "rentMes": 0.84,
+      "pctCDI": 84.27,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Petrobras SET/2034 IPCA+3.99%",
+      "curto": "DEB Petrobras",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Set/34",
+      "taxa": "IPCA + 3,99%",
+      "conta": "5751663",
+      "diasLiq": 3100,
+      "total": 234560.50,
+      "rentMes": 0.73,
+      "pctCDI": 73.24,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Litoral Sul OUT/2031 IPCA+5.86%",
+      "curto": "DEB Litoral Sul",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Out/31",
+      "taxa": "IPCA + 5,86%",
+      "conta": "3149413",
+      "diasLiq": 2050,
+      "total": 163487.99,
+      "rentMes": 0.88,
+      "pctCDI": 88.33,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Rumo DEZ/2035 IPCA+4.00%",
+      "curto": "DEB Rumo",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Dez/35",
+      "taxa": "IPCA + 4,00%",
+      "conta": "3149413",
+      "diasLiq": 3560,
+      "total": 234288.25,
+      "rentMes": 0.73,
+      "pctCDI": 73.32,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Tibagi Energia JUL/2035 IPCA+4.30%",
+      "curto": "DEB Tibagi",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Jul/35",
+      "taxa": "IPCA + 4,30%",
+      "conta": "3149413",
+      "diasLiq": 3400,
+      "total": 206531.50,
+      "rentMes": 0.76,
+      "pctCDI": 75.77,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Vamos OUT/2031 IPCA+7.30%",
+      "curto": "DEB Vamos",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Out/31",
+      "taxa": "IPCA + 7,30%",
+      "conta": "8333983",
+      "diasLiq": 2050,
+      "total": 350566.43,
+      "rentMes": 0.85,
+      "pctCDI": 84.87,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Localiza MAR/2031 IPCA+5.20%",
+      "curto": "DEB Localiza",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Mar/31",
+      "taxa": "IPCA + 5,20%",
+      "conta": "5270730",
+      "diasLiq": 1830,
+      "total": 397211.58,
+      "rentMes": 0.70,
+      "pctCDI": 70.60,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "DEB Movida JUN/2029 IPCA+8.10%",
+      "curto": "DEB Movida",
+      "tipo": "Debêntures",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Jun/29",
+      "taxa": "IPCA + 8,10%",
+      "conta": "5270730",
+      "diasLiq": 1200,
+      "total": 300193.79,
+      "rentMes": 0.90,
+      "pctCDI": 90.24,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA BTG - MAR/2027 - 94% CDI",
+      "curto": "CRA BTG",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Mar/27",
+      "taxa": "94% CDI",
+      "conta": "6055612",
+      "diasLiq": 365,
+      "total": 263605.94,
+      "rentMes": 1.09,
+      "pctCDI": 109.39,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA BRF - JUN/2029 - CDI + 0,80%",
+      "curto": "CRA BRF CDI",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Jun/29",
+      "taxa": "CDI + 0,80%",
+      "conta": "6055612",
+      "diasLiq": 1200,
+      "total": 112222.87,
+      "rentMes": 1.24,
+      "pctCDI": 124.43,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA BRF - MAI/2031 - IPCA + 5,35%",
+      "curto": "CRA BRF IPCA",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Mai/31",
+      "taxa": "IPCA + 5,35%",
+      "conta": "5751663",
+      "diasLiq": 1900,
+      "total": 251929.74,
+      "rentMes": 0.84,
+      "pctCDI": 84.27,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA FS BIO - OUT/2029 - CDI + 1,80%",
+      "curto": "CRA FS Bio",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Out/29",
+      "taxa": "CDI + 1,80%",
+      "conta": "diversas",
+      "diasLiq": 1300,
+      "total": 384125.2,
+      "rentMes": 1.33,
+      "pctCDI": 133.4,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA Grupo José Alves - MAI/2028 - IPCA + 4,60%",
+      "curto": "CRA G. José Alves",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Mai/28",
+      "taxa": "IPCA + 4,60%",
+      "conta": "5751663",
+      "diasLiq": 800,
+      "total": 127775.19,
+      "rentMes": 0.78,
+      "pctCDI": 78.2,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA Marfrig - JUL/2028 - IPCA + 4,50%",
+      "curto": "CRA Marfrig",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Jul/28",
+      "taxa": "IPCA + 4,50%",
+      "conta": "5751663",
+      "diasLiq": 870,
+      "total": 123510.63,
+      "rentMes": 0.77,
+      "pctCDI": 77.39,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA Minerva - ABR/2031 - IPCA + 5,25%",
+      "curto": "CRA Minerva I",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Abr/31",
+      "taxa": "IPCA + 5,25%",
+      "conta": "5751663",
+      "diasLiq": 1850,
+      "total": 29753.96,
+      "rentMes": 0.83,
+      "pctCDI": 83.46,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA Minerva - ABR/2031 - IPCA + 5,35%",
+      "curto": "CRA Minerva II",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Abr/31",
+      "taxa": "IPCA + 5,35%",
+      "conta": "5751663",
+      "diasLiq": 1850,
+      "total": 106475.5,
+      "rentMes": 0.84,
+      "pctCDI": 84.27,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA M. Dias Branco - MAR/2031 - IPCA + 4,14%",
+      "curto": "CRA M. Dias Branco",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Mar/31",
+      "taxa": "IPCA + 4,14%",
+      "conta": "3149413",
+      "diasLiq": 1830,
+      "total": 212058.79,
+      "rentMes": 0.69,
+      "pctCDI": 68.92,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA São Salvador - NOV/2026 - IPCA + 6,95%",
+      "curto": "CRA São Salvador",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Nov/26",
+      "taxa": "IPCA + 6,95%",
+      "conta": "3149413",
+      "diasLiq": 250,
+      "total": 88504.66,
+      "rentMes": 0.97,
+      "pctCDI": 97.07,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRA Vamos - NOV/2026 - Pré 7,00%",
+      "curto": "CRA Vamos",
+      "tipo": "CRA",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Nov/26",
+      "taxa": "Pré 7,00%",
+      "conta": "3149413",
+      "diasLiq": 250,
+      "total": 44126.13,
+      "rentMes": 0.57,
+      "pctCDI": 57.16,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRI Ânima - DEZ/2027 - CDI + 1,75%",
+      "curto": "CRI Ânima",
+      "tipo": "CRI",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Dez/27",
+      "taxa": "CDI + 1,75%",
+      "conta": "5751663",
+      "diasLiq": 650,
+      "total": 194535.81,
+      "rentMes": 1.32,
+      "pctCDI": 132.4,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRI Plano & Plano - AGO/2029 - IPCA + 6,65%",
+      "curto": "CRI Plano&Plano",
+      "tipo": "CRI",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Ago/29",
+      "taxa": "IPCA + 6,65%",
+      "conta": "3149413",
+      "diasLiq": 1280,
+      "total": 290952.09,
+      "rentMes": 0.94,
+      "pctCDI": 94.68,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "CRI Rede D'Or - DEZ/2031 - IPCA + 5,58%",
+      "curto": "CRI Rede D'Or",
+      "tipo": "CRI",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Dez/31",
+      "taxa": "IPCA + 5,58%",
+      "conta": "3149413",
+      "diasLiq": 2100,
+      "total": 248478.05,
+      "rentMes": 0.86,
+      "pctCDI": 86.08,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": true
+    },
+    {
+      "nome": "NTN-B AGO/2030 (IPCA+3.69%)",
+      "curto": "NTN-B AGO/30",
+      "tipo": "Títulos Públicos",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Ago/30",
+      "taxa": "IPCA + 3,69%",
+      "conta": "5751663",
+      "diasLiq": 1620,
+      "total": 176717.45,
+      "rentMes": 0.60,
+      "pctCDI": 60.18,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "NTN-B AGO/2050 (IPCA+4.71%)",
+      "curto": "NTN-B AGO/50",
+      "tipo": "Títulos Públicos",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Ago/50",
+      "taxa": "IPCA + 4,71%",
+      "conta": "5751663",
+      "diasLiq": 8930,
+      "total": 180866.90,
+      "rentMes": 0.67,
+      "pctCDI": 67.22,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "LF BMG SET/2029 IPCA+7.87%",
+      "curto": "LF BMG",
+      "tipo": "LF",
+      "classe": "Renda Fixa",
+      "liquidez": "Venc. Set/29",
+      "taxa": "IPCA + 7,87%",
+      "conta": "5270730",
+      "diasLiq": 1280,
+      "total": 356830.05,
+      "rentMes": 0.87,
+      "pctCDI": 87.04,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "VALE3",
+      "curto": "VALE3",
+      "tipo": "Ações",
+      "classe": "RV Brasil",
+      "liquidez": "D+2",
+      "conta": "5270730",
+      "diasLiq": 2,
+      "total": 53082.0,
+      "rentMes": 3.5,
+      "pctCDI": 350.0,
+      "taxaAdmin": 0,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "KISU11",
+      "curto": "KISU11",
+      "tipo": "Fundos Listados",
+      "classe": "Fundos Listados",
+      "liquidez": "D+2",
+      "conta": "3149413",
+      "diasLiq": 2,
+      "total": 70848.0,
+      "rentMes": 1.5,
+      "pctCDI": 150.0,
+      "taxaAdmin": 0.5,
+      "taxaPerf": 0,
+      "isentoIR": false
+    },
+    {
+      "nome": "LCP Prefixado Feeder FII",
+      "curto": "LCP Pré FII",
+      "tipo": "Fundos Listados",
+      "classe": "Pré Fixado",
+      "liquidez": "Venc. diversos",
+      "conta": "3149413",
+      "diasLiq": 500,
+      "total": 395619.6,
+      "rentMes": 1.18,
+      "pctCDI": 118.0,
+      "taxaAdmin": 0.85,
+      "taxaPerf": 0,
+      "taxa": "Pré 15,00%",
+      "isentoIR": true
+    }
+  ],
+  "benchmarks": {
+    "cdi": {
+      "mes": 1.0,
+      "ano": 2.17,
+      "m12": 14.5,
+      "m24": 27.24
+    },
+    "ibovespa": {
+      "mes": -5.9,
+      "ano": 10.26,
+      "m12": 43.43,
+      "m24": 38.79
+    },
+    "ipca": {
+      "mes": 0.7,
+      "ano": 1.03,
+      "m12": 3.81,
+      "m24": 9.06
+    },
+    "dolar": {
+      "mes": 2.03,
+      "ano": -4.51,
+      "m12": -9.83,
+      "m24": 5.48
+    }
+  }
+}
