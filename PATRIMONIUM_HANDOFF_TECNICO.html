@@ -1,0 +1,2430 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patrimonium — Documentação Técnica Completa</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #0B2545;
+    --green: #1C7C54;
+    --orange: #D4700A;
+    --steel: #2C5282;
+    --teal: #234E6F;
+    --slate: #4A5568;
+    --med-gray: #718096;
+    --light-gray: #E2E8F0;
+    --very-light: #F7FAFC;
+    --red: #9B2C2C;
+    --amber: #B7791F;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Inter', -apple-system, sans-serif;
+    color: var(--navy);
+    background: #fff;
+    font-size: 10px;
+    line-height: 1.55;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  @page {
+    size: A4 portrait;
+    margin: 0;
+  }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    padding: 14mm 16mm 18mm 16mm;
+    page-break-after: always;
+    position: relative;
+  }
+
+  .page:last-child { page-break-after: auto; }
+
+  /* COVER */
+  .cover {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    background: linear-gradient(160deg, var(--navy) 0%, #162d50 50%, var(--teal) 100%);
+    color: #fff;
+  }
+  .cover-badge {
+    display: inline-block;
+    padding: 4px 18px;
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 2px;
+    font-size: 8px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    margin-bottom: 40px;
+    color: rgba(255,255,255,0.7);
+  }
+  .cover h1 {
+    font-size: 32px;
+    font-weight: 800;
+    letter-spacing: -0.02em;
+    margin-bottom: 8px;
+  }
+  .cover h2 {
+    font-size: 14px;
+    font-weight: 400;
+    color: rgba(255,255,255,0.75);
+    margin-bottom: 40px;
+  }
+  .cover-meta {
+    font-size: 9px;
+    color: rgba(255,255,255,0.5);
+    line-height: 1.8;
+  }
+  .cover-line {
+    width: 60px;
+    height: 3px;
+    background: var(--green);
+    margin: 0 auto 30px;
+    border-radius: 2px;
+  }
+
+  /* PAGE HEADER */
+  .page-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--navy);
+    margin-bottom: 16px;
+  }
+  .page-header-left { font-size: 7px; color: var(--med-gray); }
+  .page-header-center { font-size: 9px; font-weight: 700; color: var(--navy); text-transform: uppercase; letter-spacing: 0.08em; }
+  .page-header-right { font-size: 7px; color: var(--med-gray); }
+
+  /* SECTION TITLES */
+  .section-num {
+    display: inline-block;
+    background: var(--green);
+    color: #fff;
+    font-size: 9px;
+    font-weight: 700;
+    padding: 2px 8px;
+    border-radius: 2px;
+    margin-right: 8px;
+  }
+  h2 {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+  h3 {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--teal);
+    margin: 12px 0 6px;
+    padding-bottom: 3px;
+    border-bottom: 1px solid var(--light-gray);
+  }
+  h4 {
+    font-size: 10px;
+    font-weight: 700;
+    color: var(--steel);
+    margin: 8px 0 4px;
+  }
+
+  /* TABLES */
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 6px 0 10px;
+    font-size: 9px;
+  }
+  thead th {
+    background: linear-gradient(135deg, var(--navy), var(--teal));
+    color: #fff;
+    padding: 5px 8px;
+    text-align: left;
+    font-size: 8px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.06em;
+  }
+  tbody td {
+    padding: 4px 8px;
+    border-bottom: 1px solid #EDF2F7;
+    color: var(--slate);
+  }
+  tbody tr:nth-child(even) { background: var(--very-light); }
+
+  /* CODE BLOCKS */
+  pre, code {
+    font-family: 'JetBrains Mono', monospace;
+    font-size: 8.5px;
+    line-height: 1.5;
+  }
+  pre {
+    background: #0D1117;
+    color: #C9D1D9;
+    padding: 10px 14px;
+    border-radius: 4px;
+    margin: 6px 0 10px;
+    overflow-x: auto;
+    border-left: 3px solid var(--green);
+  }
+  code {
+    background: #EDF2F7;
+    padding: 1px 4px;
+    border-radius: 2px;
+    color: var(--navy);
+  }
+  pre code {
+    background: none;
+    padding: 0;
+    color: inherit;
+  }
+
+  /* KEYWORD HIGHLIGHTS IN CODE */
+  .kw { color: #FF7B72; }
+  .fn { color: #D2A8FF; }
+  .st { color: #A5D6FF; }
+  .cm { color: #8B949E; }
+  .nu { color: #79C0FF; }
+  .ty { color: #FFA657; }
+
+  /* METRIC BOXES */
+  .metric-row {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    margin: 8px 0;
+  }
+  .metric-box {
+    background: var(--very-light);
+    border: 1px solid var(--light-gray);
+    border-left: 3px solid var(--steel);
+    border-radius: 2px;
+    padding: 8px 10px;
+  }
+  .metric-box .label { font-size: 7px; text-transform: uppercase; letter-spacing: 0.08em; color: var(--med-gray); }
+  .metric-box .value { font-size: 16px; font-weight: 700; color: var(--navy); margin: 2px 0; }
+  .metric-box .ctx { font-size: 7.5px; color: var(--med-gray); }
+
+  /* CALLOUT / TIP BOXES */
+  .tip {
+    background: #F0FFF4;
+    border-left: 3px solid var(--green);
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: 9px;
+    border-radius: 0 4px 4px 0;
+  }
+  .tip-title { font-weight: 700; color: var(--green); font-size: 8px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+
+  .warn {
+    background: #FFFFF0;
+    border-left: 3px solid var(--orange);
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: 9px;
+    border-radius: 0 4px 4px 0;
+  }
+  .warn-title { font-weight: 700; color: var(--orange); font-size: 8px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+
+  .danger {
+    background: #FFF5F5;
+    border-left: 3px solid var(--red);
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-size: 9px;
+    border-radius: 0 4px 4px 0;
+  }
+  .danger-title { font-weight: 700; color: var(--red); font-size: 8px; text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 2px; }
+
+  /* COLOR SWATCH */
+  .swatch {
+    display: inline-block;
+    width: 14px;
+    height: 14px;
+    border-radius: 2px;
+    vertical-align: middle;
+    margin-right: 4px;
+    border: 1px solid rgba(0,0,0,0.1);
+  }
+
+  /* UTILITY */
+  p { margin-bottom: 6px; }
+  ul, ol { margin: 4px 0 8px 16px; }
+  li { margin-bottom: 3px; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+  .three-col { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 10px; }
+
+  .footer {
+    position: absolute;
+    bottom: 8mm;
+    left: 16mm;
+    right: 16mm;
+    display: flex;
+    justify-content: space-between;
+    font-size: 7px;
+    color: var(--med-gray);
+    border-top: 1px solid var(--light-gray);
+    padding-top: 4px;
+  }
+
+  .tag {
+    display: inline-block;
+    padding: 1px 6px;
+    border-radius: 2px;
+    font-size: 7.5px;
+    font-weight: 600;
+  }
+  .tag-green { background: #F0FFF4; color: var(--green); border: 1px solid #C6F6D5; }
+  .tag-red { background: #FFF5F5; color: var(--red); border: 1px solid #FED7D7; }
+  .tag-amber { background: #FFFFF0; color: var(--amber); border: 1px solid #FEFCBF; }
+  .tag-navy { background: #EBF4FF; color: var(--navy); border: 1px solid #BEE3F8; }
+
+  .prisma-schema { font-size: 8px; }
+
+  @media print {
+    body { -webkit-print-color-adjust: exact !important; print-color-adjust: exact !important; }
+    .page { padding: 12mm 14mm 16mm 14mm; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ==================== CAPA ==================== -->
+<div class="page cover">
+  <div class="cover-badge">Confidencial &middot; Uso Interno</div>
+  <h1>Patrimonium</h1>
+  <div class="cover-line"></div>
+  <h2>Documentacao Tecnica Completa<br>Handoff para Desenvolvimento Backend</h2>
+  <div class="cover-meta">
+    Versao 1.0 &middot; 26 de marco de 2026<br>
+    Plataforma de Inteligencia Patrimonial<br><br>
+    Stack: NestJS + Prisma + PostgreSQL<br>
+    Frontend: React 18 + Vite 6 + Recharts
+  </div>
+</div>
+
+<!-- ==================== SUMÁRIO ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">Sumario</span>
+    <span class="page-header-right">pag. 2</span>
+  </div>
+
+  <h2>Indice</h2>
+
+  <table>
+    <thead><tr><th>#</th><th>Secao</th><th>Pag.</th></tr></thead>
+    <tbody>
+      <tr><td>01</td><td>Visao Geral do Sistema</td><td>3</td></tr>
+      <tr><td>02</td><td>Arquitetura Atual (Frontend-Only)</td><td>4</td></tr>
+      <tr><td>03</td><td>Paleta de Cores e Design System</td><td>5</td></tr>
+      <tr><td>04</td><td>Graficos (Recharts) &mdash; Tipos, Props, Gradientes</td><td>7</td></tr>
+      <tr><td>05</td><td>Todos os Calculos e Racionais</td><td>9</td></tr>
+      <tr><td>06</td><td>APIs e Fontes de Dados</td><td>15</td></tr>
+      <tr><td>07</td><td>Pipeline de Dados &mdash; Ingestao e Extracao</td><td>17</td></tr>
+      <tr><td>08</td><td>Geracao de PDF (Puppeteer)</td><td>18</td></tr>
+      <tr><td>09</td><td>Scripts Auxiliares</td><td>19</td></tr>
+      <tr><td>10</td><td>Inconsistencias e Gaps Identificados</td><td>20</td></tr>
+      <tr><td>11</td><td>Proposta de Schema &mdash; NestJS + Prisma + PostgreSQL</td><td>22</td></tr>
+      <tr><td>12</td><td>Roadmap de Backend &mdash; Fases de Implementacao</td><td>22</td></tr>
+      <tr><td>13</td><td>Integracao Claude API (Anthropic) &mdash; Chat IA + Insights</td><td>23</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip" style="margin-top: 20px;">
+    <div class="tip-title">Como usar este documento</div>
+    Este documento contem TODA a logica de negocios, calculos financeiros, design system e arquitetura construidos ate agora no frontend.
+    O objetivo e que o dev backend consiga replicar cada calculo no server-side, entender o modelo de dados e propor a API REST que alimentara o frontend.
+    Trechos de codigo estao em JavaScript (como implementado hoje) &mdash; devem ser reimplementados em TypeScript (NestJS).
+  </div>
+
+  <div class="warn" style="margin-top: 10px;">
+    <div class="warn-title">Dados sensiveis</div>
+    Nomes de clientes, numeros de contas e valores patrimoniais foram omitidos deste documento.
+    Os exemplos usam dados genericos. A estrutura e os campos sao reais.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 2</span>
+  </div>
+</div>
+
+<!-- ==================== 01 VISÃO GERAL ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">01 &mdash; Visao Geral</span>
+    <span class="page-header-right">pag. 3</span>
+  </div>
+
+  <h2><span class="section-num">01</span> Visao Geral do Sistema</h2>
+
+  <p>O Patrimonium e uma plataforma de inteligencia patrimonial que consolida multiplas contas de investimento (XP Investimentos) em uma interface analitica unificada. Atende assessores de investimento (AAI) e clientes de alta renda.</p>
+
+  <div class="metric-row">
+    <div class="metric-box">
+      <div class="label">Patrimonio consolidado</div>
+      <div class="value">R$ 30M+</div>
+      <div class="ctx">7 contas XP por cliente</div>
+    </div>
+    <div class="metric-box" style="border-left-color: var(--green)">
+      <div class="label">Clientes ativos</div>
+      <div class="value">3</div>
+      <div class="ctx">Client A, B, C (scaffold)</div>
+    </div>
+    <div class="metric-box" style="border-left-color: var(--orange)">
+      <div class="label">Posicoes</div>
+      <div class="value">42+</div>
+      <div class="ctx">Fundos, RF, RV, COE, FIP</div>
+    </div>
+    <div class="metric-box" style="border-left-color: var(--amber)">
+      <div class="label">Modelos financeiros</div>
+      <div class="value">24</div>
+      <div class="ctx">Calculos e simulacoes</div>
+    </div>
+  </div>
+
+  <h3>Stack Atual</h3>
+  <table>
+    <thead><tr><th>Camada</th><th>Tecnologia</th><th>Versao</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Frontend</td><td>React</td><td>18.3.1</td><td>SPA com dashboard multi-tab</td></tr>
+      <tr><td>Bundler</td><td>Vite</td><td>6.0.0</td><td>Dev server + build</td></tr>
+      <tr><td>Graficos</td><td>Recharts</td><td>2.13.0</td><td>Pie, Bar, Line, Area, Composed, Scatter</td></tr>
+      <tr><td>PDF</td><td>Puppeteer</td><td>24.39.1</td><td>Chrome headless para A4</td></tr>
+      <tr><td>Scripts</td><td>Node.js (ESM)</td><td>20+</td><td>fetch-macro.mjs, generate-pdf.mjs</td></tr>
+      <tr><td>Docs Python</td><td>ReportLab</td><td>latest</td><td>Guias, roadmaps, relatorios</td></tr>
+      <tr><td>Docs Node</td><td>docx</td><td>latest</td><td>Auditoria tecnica (DOCX)</td></tr>
+      <tr><td>Deploy</td><td>Local / Vercel</td><td>&mdash;</td><td>Static files (sem backend)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>O que o Backend Precisa Resolver</h3>
+  <ol>
+    <li><strong>Eliminar JSON manual</strong> &mdash; hoje os dados de carteira sao editados manualmente em <code>cliente.json</code></li>
+    <li><strong>Calculos server-side</strong> &mdash; todos os 24 modelos financeiros estao inline no JSX (2.300+ linhas)</li>
+    <li><strong>Multi-tenant</strong> &mdash; hoje cada cliente e uma pasta separada com codigo duplicado</li>
+    <li><strong>Ingestao automatica</strong> &mdash; extrair dados de PDFs (XP Performance) e planilhas</li>
+    <li><strong>Autenticacao</strong> &mdash; hoje nao existe nenhuma camada de auth</li>
+    <li><strong>API REST</strong> &mdash; frontend deve consumir dados via API, nao importar JSON</li>
+  </ol>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 3</span>
+  </div>
+</div>
+
+<!-- ==================== 02 ARQUITETURA ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">02 &mdash; Arquitetura Atual</span>
+    <span class="page-header-right">pag. 4</span>
+  </div>
+
+  <h2><span class="section-num">02</span> Arquitetura Atual (Frontend-Only)</h2>
+
+  <h3>Fluxo de Dados</h3>
+  <pre><code>
+  <span class="cm">// FLUXO ATUAL (sem backend)</span>
+
+  [XP Performance PDF] --<span class="st">manual</span>--> [cliente.json] --<span class="fn">import</span>--> [AppCliente.jsx]
+                                                                         |
+  [BCB SGS API]   ---|                                                   v
+  [BCB Focus API] ---|--> [fetch-macro.mjs] --> [macro.json] -------> [Dashboard]
+  [Yahoo Finance] ---|                                                   |
+  [AwesomeAPI]    ---|                                                   v
+                                                                    [Puppeteer]
+                                                                         |
+                                                                         v
+                                                                    [PDF A4]
+  </code></pre>
+
+  <h3>Estrutura de Diretorios</h3>
+  <pre><code>
+  Dash Institucional/
+  |-- src/                            <span class="cm"># Client A (8 tabs, 2.287 linhas)</span>
+  |   |-- AppCliente.jsx             <span class="cm"># Componente monolitico</span>
+  |   |-- data/
+  |   |   |-- cliente.json           <span class="cm"># Dados manuais da carteira</span>
+  |   |   +-- macro.json             <span class="cm"># Dados macro (auto)</span>
+  |   |-- main.jsx
+  |   +-- index.css
+  |
+  |-- client-b/                       <span class="cm"># Client B (9 tabs, 3.010 linhas)</span>
+  |   |-- src/AppCliente.jsx         <span class="cm"># Copia com tab Financial Planning</span>
+  |   +-- src/data/                  <span class="cm"># Dados independentes</span>
+  |
+  |-- client-c/                       <span class="cm"># Client C (scaffold)</span>
+  |   +-- src/data/
+  |
+  |-- scripts/                        <span class="cm"># Geradores de documentos</span>
+  |-- fetch-macro.mjs                 <span class="cm"># Pipeline de dados macro</span>
+  +-- package.json
+  </code></pre>
+
+  <div class="danger">
+    <div class="danger-title">Problema critico: codigo duplicado</div>
+    Client A (2.287 linhas) e Client B (3.010 linhas) sao copias do mesmo componente com diferencas pontuais.
+    Qualquer correcao precisa ser replicada manualmente em ambos. Client C herdara o mesmo problema.
+    <strong>O backend deve centralizar a logica e o frontend consumir via API.</strong>
+  </div>
+
+  <h3>Multi-Client &mdash; Comparativo</h3>
+  <table>
+    <thead><tr><th>Feature</th><th>Client A</th><th>Client B</th><th>Client C</th></tr></thead>
+    <tbody>
+      <tr><td>Tabs</td><td>8</td><td>9 (+Financial Planning)</td><td>Scaffold</td></tr>
+      <tr><td>Linhas JSX</td><td>2.287</td><td>3.010</td><td>&mdash;</td></tr>
+      <tr><td>Ativos externos</td><td>Nao</td><td>Sim (imoveis, USD, mutuos)</td><td>&mdash;</td></tr>
+      <tr><td>Print mode</td><td>PageHead/PageBreak</td><td>SectionDivider/IIFE</td><td>&mdash;</td></tr>
+      <tr><td>Running header</td><td>Nao</td><td>Sim</td><td>&mdash;</td></tr>
+      <tr><td>Conclusao dedicada</td><td>Nao</td><td>Sim ("Obrigado")</td><td>&mdash;</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 4</span>
+  </div>
+</div>
+
+<!-- ==================== 03 DESIGN SYSTEM ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">03 &mdash; Design System</span>
+    <span class="page-header-right">pag. 5</span>
+  </div>
+
+  <h2><span class="section-num">03</span> Paleta de Cores e Design System</h2>
+
+  <h3>Paleta Primaria (Branding)</h3>
+  <table>
+    <thead><tr><th>Nome</th><th>Hex</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td><span class="swatch" style="background:#0B2545"></span> Navy</td><td><code>#0B2545</code></td><td>Branding principal, headers, titulos de secao</td></tr>
+      <tr><td><span class="swatch" style="background:#1C7C54"></span> Green</td><td><code>#1C7C54</code></td><td>Positivo, ganhos, badges de sucesso, gradient headers</td></tr>
+      <tr><td><span class="swatch" style="background:#D4700A"></span> Orange</td><td><code>#D4700A</code></td><td>Destaque, alertas, CTA, acentos</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Paleta do Dashboard (Objeto P)</h3>
+  <table>
+    <thead><tr><th>Variavel</th><th>Hex</th><th>Uso no Dashboard</th></tr></thead>
+    <tbody>
+      <tr><td><span class="swatch" style="background:#1B2A4A"></span> P.navy</td><td><code>#1B2A4A</code></td><td>Texto principal, headers, chart primary</td></tr>
+      <tr><td><span class="swatch" style="background:#0D1A30"></span> P.darkNavy</td><td><code>#0D1A30</code></td><td>Background ultra-escuro (pouco usado)</td></tr>
+      <tr><td><span class="swatch" style="background:#2C5282"></span> P.steel</td><td><code>#2C5282</code></td><td>Acentos secundarios, selection, chart secondary</td></tr>
+      <tr><td><span class="swatch" style="background:#234E6F"></span> P.teal</td><td><code>#234E6F</code></td><td>Strategy charts, tertiary accent</td></tr>
+      <tr><td><span class="swatch" style="background:#4A5568"></span> P.slate</td><td><code>#4A5568</code></td><td>Corpo de texto, dados de tabela</td></tr>
+      <tr><td><span class="swatch" style="background:#718096"></span> P.medGray</td><td><code>#718096</code></td><td>Labels, texto secundario, eixos de grafico</td></tr>
+      <tr><td><span class="swatch" style="background:#E2E8F0"></span> P.lightGray</td><td><code>#E2E8F0</code></td><td>Borders, dividers, grid lines</td></tr>
+      <tr><td><span class="swatch" style="background:#F7FAFC"></span> P.veryLight</td><td><code>#F7FAFC</code></td><td>Background de cards e linhas alternadas</td></tr>
+      <tr><td><span class="swatch" style="background:#276749"></span> P.green</td><td><code>#276749</code></td><td>Positivo, ganhos, retornos acima do CDI</td></tr>
+      <tr><td><span class="swatch" style="background:#9B2C2C"></span> P.red</td><td><code>#9B2C2C</code></td><td>Negativo, perdas, abaixo do benchmark</td></tr>
+      <tr><td><span class="swatch" style="background:#B7791F"></span> P.amber</td><td><code>#B7791F</code></td><td>Warning, neutro, em monitoramento</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Chart Palette (Array PC)</h3>
+  <pre><code><span class="kw">const</span> PC = [P.navy, P.steel, P.teal, P.slate, P.medGray, P.s5, P.s6, <span class="st">"#A0AEC0"</span>, <span class="st">"#B8C5D6"</span>];</code></pre>
+  <p>Usado para atribuir cores sequenciais em PieChart/BarChart com multiplas series.</p>
+
+  <h3>Tipografia</h3>
+  <table>
+    <thead><tr><th>Fonte</th><th>Uso</th><th>Pesos</th></tr></thead>
+    <tbody>
+      <tr><td>Inter</td><td>Interface do dashboard, KPIs, labels, tabelas</td><td>400, 500, 600, 700, 800</td></tr>
+      <tr><td>Source Serif 4</td><td>Body text em CSS (serif para documentos impressos)</td><td>400, 600, 700</td></tr>
+      <tr><td>JetBrains Mono</td><td>Dados numericos, codigos, taxas</td><td>400, 500, 600</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Componentes Reutilizaveis</h3>
+
+  <h4>KPI Box</h4>
+  <pre><code><span class="kw">const</span> <span class="fn">KPI</span> = ({ label, value, context, accent, bdr }) =&gt; (
+  &lt;div style={{ ...card, borderLeft: <span class="st">"3px solid "</span> + (bdr || P.lightGray) }}&gt;
+    &lt;div style={{ fontSize: <span class="nu">10</span>, textTransform: <span class="st">"uppercase"</span>, letterSpacing: <span class="st">"0.08em"</span>, color: P.medGray }}&gt;{label}&lt;/div&gt;
+    &lt;div style={{ fontSize: <span class="nu">26</span>, fontWeight: <span class="nu">700</span>, color: accent || P.navy }}&gt;{value}&lt;/div&gt;
+    &lt;div style={{ fontSize: <span class="nu">11</span>, color: P.medGray }}&gt;{context}&lt;/div&gt;
+  &lt;/div&gt;
+);</code></pre>
+
+  <h4>Badge System</h4>
+  <pre><code><span class="kw">const</span> <span class="fn">bdg</span> = (t) =&gt; ({
+  display: <span class="st">"inline-block"</span>, padding: <span class="st">"2px 10px"</span>, borderRadius: <span class="nu">2</span>, fontSize: <span class="nu">10</span>, fontWeight: <span class="nu">700</span>,
+  background: t === <span class="st">"positivo"</span> ? <span class="st">"#F0FFF4"</span> : t === <span class="st">"negativo"</span> ? <span class="st">"#FFF5F5"</span> : <span class="st">"#FFFFF0"</span>,
+  color: t === <span class="st">"positivo"</span> ? P.green : t === <span class="st">"negativo"</span> ? P.red : P.amber,
+  border: <span class="st">"1px solid "</span> + (t === <span class="st">"positivo"</span> ? <span class="st">"#C6F6D5"</span> : t === <span class="st">"negativo"</span> ? <span class="st">"#FED7D7"</span> : <span class="st">"#FEFCBF"</span>)
+});</code></pre>
+
+  <h4>Card Base</h4>
+  <pre><code><span class="kw">const</span> card = {
+  background: P.white, borderRadius: <span class="nu">2</span>, padding: <span class="st">"20px 24px"</span>,
+  border: <span class="st">"1px solid "</span> + P.lightGray,
+  pageBreakInside: <span class="st">"avoid"</span>, breakInside: <span class="st">"avoid"</span>
+};</code></pre>
+
+  <h4>Grid Helper</h4>
+  <pre><code><span class="kw">const</span> <span class="fn">g</span> = (c, gap = <span class="nu">24</span>) =&gt; ({ display: <span class="st">"grid"</span>, gridTemplateColumns: <span class="st">"repeat("</span> + c + <span class="st">",1fr)"</span>, gap });
+<span class="cm">// g(3) = 3 colunas  |  g(5) = 5 colunas (dashboard)  |  g(1) = 1 coluna (print)</span></code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 5</span>
+  </div>
+</div>
+
+<!-- ==================== 03 cont - TABLE STYLES ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">03 &mdash; Design System (cont.)</span>
+    <span class="page-header-right">pag. 6</span>
+  </div>
+
+  <h3>Estilos de Tabela</h3>
+  <pre><code><span class="kw">const</span> SG = { stroke: <span class="st">"#EDF2F7"</span>, strokeDasharray: <span class="st">"3 3"</span> };  <span class="cm">// CartesianGrid</span>
+<span class="kw">const</span> sF = <span class="st">"'Inter',sans-serif"</span>;                            <span class="cm">// Font family padrao</span>
+
+<span class="cm">// Table Header</span>
+<span class="kw">const</span> th = { fontSize: <span class="nu">10</span>, textTransform: <span class="st">"uppercase"</span>, letterSpacing: <span class="st">"0.08em"</span>,
+            color: P.medGray, borderBottom: <span class="st">"1px solid "</span> + P.lightGray, padding: <span class="st">"6px 8px"</span> };
+
+<span class="cm">// Table Data</span>
+<span class="kw">const</span> td = { fontSize: <span class="nu">13</span>, color: P.slate, padding: <span class="st">"5px 8px"</span> };
+<span class="kw">const</span> tdR = { ...td, textAlign: <span class="st">"right"</span> };  <span class="cm">// right-aligned para valores</span></code></pre>
+
+  <h3>Section Title</h3>
+  <pre><code><span class="kw">const</span> stit = {
+  fontSize: <span class="nu">11</span>, textTransform: <span class="st">"uppercase"</span>, letterSpacing: <span class="st">"0.12em"</span>,
+  color: P.medGray, borderBottom: <span class="st">"1px solid "</span> + P.lightGray,
+  paddingBottom: <span class="nu">6</span>, marginBottom: <span class="nu">12</span>
+};</code></pre>
+
+  <h3>Formatters (Reutilizar no Backend)</h3>
+  <pre><code><span class="cm">// Moeda brasileira</span>
+<span class="kw">const</span> <span class="fn">fmt</span>  = (v) =&gt; v?.toLocaleString(<span class="st">"pt-BR"</span>, { style: <span class="st">"currency"</span>, currency: <span class="st">"BRL"</span> }) ?? <span class="st">"--"</span>;
+
+<span class="cm">// Milhoes</span>
+<span class="kw">const</span> <span class="fn">fmtM</span> = (v) =&gt; <span class="st">"R$ "</span> + (v / <span class="nu">1e6</span>).toFixed(<span class="nu">1</span>) + <span class="st">"M"</span>;
+
+<span class="cm">// Percentual (2 casas)</span>
+<span class="kw">const</span> <span class="fn">fmtPct</span> = (v) =&gt; v != <span class="kw">null</span> ? v.toFixed(<span class="nu">2</span>) + <span class="st">"%"</span> : <span class="st">"--"</span>;
+
+<span class="cm">// Percentual (1 casa)</span>
+<span class="kw">const</span> <span class="fn">fmtPct1</span> = (v) =&gt; v != <span class="kw">null</span> ? v.toFixed(<span class="nu">1</span>) + <span class="st">"%"</span> : <span class="st">"--"</span>;
+
+<span class="cm">// Numero formatado</span>
+<span class="kw">const</span> <span class="fn">fmtNum</span> = (v) =&gt; v?.toLocaleString(<span class="st">"pt-BR"</span>) ?? <span class="st">"--"</span>;
+
+<span class="cm">// Taxa mensal para anual</span>
+<span class="kw">const</span> <span class="fn">mf</span> = (anual) =&gt; Math.pow(<span class="nu">1</span> + anual / <span class="nu">100</span>, <span class="nu">1</span> / <span class="nu">12</span>) - <span class="nu">1</span>;</code></pre>
+
+  <div class="tip">
+    <div class="tip-title">Dica para o backend</div>
+    Todos esses formatters devem ser replicados como utils no NestJS. O frontend continuara usando os mesmos, mas a API deve retornar dados brutos (numeros) e o frontend formata na exibicao. Para PDF server-side, o backend precisara dos formatters.
+  </div>
+
+  <h3>Print vs Dashboard Mode</h3>
+  <table>
+    <thead><tr><th>Propriedade</th><th>Dashboard</th><th>Print Mode</th></tr></thead>
+    <tbody>
+      <tr><td>Padding do card</td><td><code>20px 24px</code></td><td><code>10px 12px</code></td></tr>
+      <tr><td>Font size labels</td><td><code>11px</code></td><td><code>7-9px</code></td></tr>
+      <tr><td>Grid columns</td><td><code>g(5)</code> ou <code>g(3)</code></td><td><code>g(1)</code> ou <code>g(2)</code></td></tr>
+      <tr><td>Chart height</td><td><code>280-340px</code></td><td><code>200-220px</code></td></tr>
+      <tr><td>KPI value size</td><td><code>26px</code></td><td><code>18px</code></td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 6</span>
+  </div>
+</div>
+
+<!-- ==================== 04 GRÁFICOS ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">04 &mdash; Graficos (Recharts)</span>
+    <span class="page-header-right">pag. 7</span>
+  </div>
+
+  <h2><span class="section-num">04</span> Graficos &mdash; Tipos, Props, Gradientes</h2>
+
+  <p>Todos os graficos usam <code>Recharts 2.13.0</code>. Importacoes: PieChart, Pie, Cell, BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, ResponsiveContainer, LineChart, Line, AreaChart, Area, ComposedChart, ReferenceLine, ScatterChart, Scatter, ZAxis, Legend.</p>
+
+  <h3>Inventario de Graficos por Tab</h3>
+  <table>
+    <thead><tr><th>Tab</th><th>Tipo</th><th>Dados</th><th>Cor Principal</th><th>Altura</th></tr></thead>
+    <tbody>
+      <tr><td>Overview</td><td>AreaChart</td><td>Evolucao patrimonial (evoTotal)</td><td>P.navy + gradient gN</td><td>220px</td></tr>
+      <tr><td>Overview</td><td>ComposedChart</td><td>Retornos mensais por conta</td><td>Bar: P.navy, Ref: P.red (dashed)</td><td>180px</td></tr>
+      <tr><td>Asset Alloc</td><td>PieChart</td><td>Estrategia, tipo, contas</td><td>PC array sequencial</td><td>220px</td></tr>
+      <tr><td>Strategy</td><td>AreaChart</td><td>Curva de liquidez (stepAfter)</td><td>P.navy + green dots</td><td>280px</td></tr>
+      <tr><td>Strategy</td><td>AreaChart</td><td>Curva Selic projetada</td><td>P.amber + gradient gSA</td><td>220px</td></tr>
+      <tr><td>Strategy</td><td>ComposedChart</td><td>Projecao FIP (MOIC vs CDI)</td><td>P.green, P.navy, P.amber</td><td>280px</td></tr>
+      <tr><td>Benchmark</td><td>BarChart</td><td>Performance vs benchmarks</td><td>P.navy (carteira), P.steel (CDI)</td><td>220px</td></tr>
+      <tr><td>Tax Alpha</td><td>BarChart</td><td>Top 10 bruto vs liquido</td><td>P.navy (bruto), P.green (liquido)</td><td>260px</td></tr>
+      <tr><td>Efficiency</td><td>BarChart</td><td>Distribuicao de custos</td><td>P.navy + Ref: P.amber (media)</td><td>220px</td></tr>
+      <tr><td>Macro</td><td>AreaChart</td><td>Curva Selic historica</td><td>P.steel + gradient gS</td><td>220px</td></tr>
+      <tr><td>Financial*</td><td>AreaChart</td><td>Projecao BRL 60 meses</td><td>3 cenarios (green, navy, amber)</td><td>320px</td></tr>
+      <tr><td>Financial*</td><td>AreaChart</td><td>Projecao USD 60 meses</td><td>3 cenarios</td><td>320px</td></tr>
+    </tbody>
+  </table>
+  <p style="font-size:8px; color: var(--med-gray);">* Apenas Client B</p>
+
+  <h3>Configuracao Padrao de Eixos</h3>
+  <pre><code>&lt;XAxis
+  dataKey=<span class="st">"mes"</span>
+  tick={{ fill: P.medGray, fontSize: <span class="nu">10</span>, fontFamily: sF }}
+  axisLine={<span class="kw">false</span>}
+  tickLine={<span class="kw">false</span>}
+/&gt;
+&lt;YAxis
+  tick={{ fill: P.medGray, fontSize: <span class="nu">10</span>, fontFamily: sF }}
+  axisLine={<span class="kw">false</span>}
+  tickLine={<span class="kw">false</span>}
+  tickFormatter={(v) =&gt; <span class="fn">fmtM</span>(v)}  <span class="cm">// ou fmtPct para %</span>
+/&gt;
+&lt;CartesianGrid vertical={<span class="kw">false</span>} {...SG} /&gt;</code></pre>
+
+  <h3>Custom Tooltip (MinTip)</h3>
+  <pre><code><span class="kw">const</span> <span class="fn">MinTip</span> = ({ active, payload, label }) =&gt; {
+  <span class="kw">if</span> (!active || !payload?.length) <span class="kw">return null</span>;
+  <span class="kw">return</span> (
+    &lt;div style={{
+      background: P.white, border: <span class="st">"1px solid "</span> + P.lightGray,
+      borderRadius: <span class="nu">4</span>, padding: <span class="st">"8px 12px"</span>,
+      boxShadow: <span class="st">"0 2px 8px rgba(0,0,0,0.08)"</span>, maxWidth: <span class="nu">220</span>
+    }}&gt;
+      &lt;div style={{ fontSize: <span class="nu">11</span>, color: P.medGray, marginBottom: <span class="nu">4</span> }}&gt;{label}&lt;/div&gt;
+      {payload.map((p, i) =&gt; (
+        &lt;div key={i} style={{ fontSize: <span class="nu">12</span>, fontWeight: <span class="nu">600</span>, color: p.color || P.navy }}&gt;
+          {p.name}: {<span class="kw">typeof</span> p.value === <span class="st">"number"</span>
+            ? (Math.abs(p.value) &gt; <span class="nu">1000</span> ? <span class="fn">fmt</span>(p.value) : p.value.toFixed(<span class="nu">2</span>) + <span class="st">"%"</span>)
+            : p.value}
+        &lt;/div&gt;
+      ))}
+    &lt;/div&gt;
+  );
+};</code></pre>
+
+  <h3>Gradientes SVG</h3>
+  <pre><code><span class="cm">// Definidos dentro de &lt;defs&gt; no AreaChart</span>
+&lt;linearGradient id=<span class="st">"gN"</span> x1=<span class="st">"0"</span> y1=<span class="st">"0"</span> x2=<span class="st">"0"</span> y2=<span class="st">"1"</span>&gt;
+  &lt;stop offset=<span class="st">"5%"</span>  stopColor={P.navy} stopOpacity={<span class="nu">0.15</span>}/&gt;
+  &lt;stop offset=<span class="st">"95%"</span> stopColor={P.navy} stopOpacity={<span class="nu">0.01</span>}/&gt;
+&lt;/linearGradient&gt;
+<span class="cm">// Nomes: gN (navy), gS (steel), gSA (amber), gLiq (liquidez), gAlpha, gCdi</span></code></pre>
+
+  <div class="warn">
+    <div class="warn-title">Inconsistencia: tooltips</div>
+    O MinTip e usado na maioria dos graficos, mas alguns usam tooltips inline com formatacao diferente. O backend/frontend deve padronizar um unico componente de tooltip.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 7</span>
+  </div>
+</div>
+
+<!-- ==================== 04 cont ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">04 &mdash; Graficos (cont.)</span>
+    <span class="page-header-right">pag. 8</span>
+  </div>
+
+  <h3>Cores por Categoria Tributaria</h3>
+  <table>
+    <thead><tr><th>Categoria</th><th>Cor</th><th>Regra</th></tr></thead>
+    <tbody>
+      <tr><td><span class="swatch" style="background:#276749"></span> Isento</td><td>P.green</td><td>CRA, CRI, LCI, LCA ou <code>isentoIR === true</code></td></tr>
+      <tr><td><span class="swatch" style="background:#B7791F"></span> Come-cotas</td><td>P.amber</td><td><code>tipo === "Fundos"</code></td></tr>
+      <tr><td><span class="swatch" style="background:#2C5282"></span> Tributado</td><td>P.steel</td><td>CDB, LF, debentures (nao isento)</td></tr>
+      <tr><td><span class="swatch" style="background:#1B2A4A"></span> RV</td><td>P.navy</td><td><code>tipo === "Acoes"</code> ou <code>"Fundos Listados"</code></td></tr>
+    </tbody>
+  </table>
+
+  <h3>Cores por Rating de Credito</h3>
+  <table>
+    <thead><tr><th>Rating</th><th>Cor</th></tr></thead>
+    <tbody>
+      <tr><td>AAA</td><td>P.green (<code>#276749</code>)</td></tr>
+      <tr><td>AA</td><td>P.navy (<code>#1B2A4A</code>)</td></tr>
+      <tr><td>A</td><td>P.amber (<code>#B7791F</code>)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Tabs &mdash; Mapeamento Real</h3>
+  <table>
+    <thead><tr><th>Tab Index</th><th>Label</th><th>Componente</th><th>Conteudo</th></tr></thead>
+    <tbody>
+      <tr><td>0</td><td>Overview</td><td>T1</td><td>KPIs, evolucao patrimonial, retornos mensais, consistencia</td></tr>
+      <tr><td>1</td><td>Asset Allocation</td><td>T2</td><td>Pie charts (estrategia, tipo, contas), tabelas detalhadas</td></tr>
+      <tr><td>2</td><td>Portfolio Strategy</td><td>T6</td><td>Liquidez imediata, vencimentos, simulacao FIP, reinvestimento</td></tr>
+      <tr><td>3</td><td>Benchmark</td><td>T4</td><td>Performance vs CDI/Ibov/IPCA/Dolar, mandato, recomendacoes</td></tr>
+      <tr><td>4</td><td>Tax Alpha</td><td>T7</td><td>Composicao tributaria, faixas IR, gross equivalent, come-cotas</td></tr>
+      <tr><td>5</td><td>Hedge</td><td>T9</td><td>Duration, DV01, stress tests, cenarios historicos</td></tr>
+      <tr><td>6</td><td>Portfolio Efficiency</td><td>T8</td><td>TER, HHI, custos, concentracao</td></tr>
+      <tr><td>7</td><td>Macro View</td><td>T3</td><td>Selic, CDI, IPCA, cambio, Focus, cenarios macro</td></tr>
+      <tr><td>8</td><td>Financial Planning*</td><td>T10</td><td>Projecao 60 meses BRL/USD, rotacao, renda passiva</td></tr>
+    </tbody>
+  </table>
+
+  <div class="warn">
+    <div class="warn-title">Inconsistencia: T5 ausente</div>
+    Nao existe componente T5. A numeracao pula de T4 para T6. Isso sugere que T5 foi removido ou renomeado em algum momento. O backend deve usar nomes semanticos (nao T1, T2...) para evitar confusao.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 8</span>
+  </div>
+</div>
+
+<!-- ==================== 05 CÁLCULOS ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">05 &mdash; Calculos e Racionais</span>
+    <span class="page-header-right">pag. 9</span>
+  </div>
+
+  <h2><span class="section-num">05</span> Todos os Calculos e Racionais</h2>
+  <p>Cada calculo abaixo esta implementado inline no JSX (useMemo). O backend deve reimplementar como services dedicados.</p>
+
+  <h3>5.1 Consolidacao Patrimonial (Media Ponderada)</h3>
+  <p><strong>Racional:</strong> Cada empresa/conta tem patrimonio e retorno proprios. A consolidacao pondera pelo patrimonio.</p>
+  <pre><code><span class="cm">// Patrimonio total</span>
+<span class="kw">const</span> totalPat = co.empresas.reduce((s, e) =&gt; s + e.patrimonio, <span class="nu">0</span>);
+
+<span class="cm">// Ganho total do mes</span>
+<span class="kw">const</span> totalGanho = co.empresas.reduce((s, e) =&gt; s + e.ganhoMes, <span class="nu">0</span>);
+
+<span class="cm">// Retorno mensal ponderado</span>
+<span class="kw">const</span> wRent = co.empresas.reduce((s, e) =&gt; s + e.rentMes * e.patrimonio, <span class="nu">0</span>) / totalPat;
+
+<span class="cm">// %CDI ponderado</span>
+<span class="kw">const</span> wCDI = co.empresas.reduce((s, e) =&gt; s + e.pctCDI * e.patrimonio, <span class="nu">0</span>) / totalPat;
+
+<span class="cm">// Retorno anual ponderado</span>
+<span class="kw">const</span> wRentAno = co.empresas.reduce((s, e) =&gt; s + e.rentAno * e.patrimonio, <span class="nu">0</span>) / totalPat;
+<span class="kw">const</span> wCDIAno = co.empresas.reduce((s, e) =&gt; s + e.pctCDIAno * e.patrimonio, <span class="nu">0</span>) / totalPat;</code></pre>
+
+  <div class="tip">
+    <div class="tip-title">Racional</div>
+    A media ponderada garante que contas maiores tenham mais peso no resultado consolidado. Se uma conta de R$ 8M rende 1.2% e outra de R$ 500k rende 0.5%, o consolidado reflete mais a conta maior.
+  </div>
+
+  <h3>5.2 Evolucao Patrimonial Consolidada</h3>
+  <pre><code><span class="kw">const</span> evoTotal = [];
+<span class="kw">for</span> (<span class="kw">let</span> i = <span class="nu">0</span>; i &lt; len; i++) {
+  <span class="kw">let</span> tot = <span class="nu">0</span>;
+  co.empresas.forEach(e =&gt; { tot += e.evolucaoPatrimonial[i].pat; });
+  evoTotal.push({ mes: co.empresas[<span class="nu">0</span>].evolucaoPatrimonial[i].mes, total: tot });
+}</code></pre>
+
+  <h3>5.3 Classificacao de Volatilidade</h3>
+  <pre><code><span class="kw">const</span> volLabel = c.volatilidade &lt; <span class="nu">2</span> ? <span class="st">"Baixa"</span> : c.volatilidade &lt;= <span class="nu">6</span> ? <span class="st">"Moderada"</span> : <span class="st">"Alta"</span>;
+<span class="kw">const</span> volColor = c.volatilidade &lt; <span class="nu">2</span> ? P.green : c.volatilidade &lt;= <span class="nu">6</span> ? P.amber : P.red;</code></pre>
+  <p><strong>Racional:</strong> Vol &lt; 2% = renda fixa tipica. 2-6% = multimercado. &gt; 6% = renda variavel.</p>
+
+  <h3>5.4 IR por Faixa (Imposto de Renda Regressivo)</h3>
+  <pre><code><span class="kw">const</span> <span class="fn">irBracket</span> = (dias) =&gt;
+  dias &lt;= <span class="nu">180</span> ? <span class="nu">0.225</span>     <span class="cm">// 22.5% ate 6 meses</span>
+  : dias &lt;= <span class="nu">360</span> ? <span class="nu">0.20</span>    <span class="cm">// 20.0% ate 1 ano</span>
+  : dias &lt;= <span class="nu">720</span> ? <span class="nu">0.175</span>   <span class="cm">// 17.5% ate 2 anos</span>
+  : <span class="nu">0.15</span>;                   <span class="cm">// 15.0% acima de 2 anos</span></code></pre>
+  <p><strong>Racional:</strong> Tabela regressiva de IR conforme Lei 11.033/2004. Aplicada a renda fixa, CDB, LF, debentures nao incentivadas.</p>
+
+  <h3>5.5 Classificacao Tributaria de Fundos</h3>
+  <pre><code><span class="kw">const</span> <span class="fn">taxCat</span> = (f) =&gt; {
+  <span class="kw">if</span> (f.isentoIR || [<span class="st">"CRA"</span>, <span class="st">"CRI"</span>, <span class="st">"LCI"</span>, <span class="st">"LCA"</span>].includes(f.tipo)) <span class="kw">return</span> <span class="st">"isento"</span>;
+  <span class="kw">if</span> (f.tipo === <span class="st">"Fundos"</span>) <span class="kw">return</span> <span class="st">"comecotas"</span>;
+  <span class="kw">if</span> ([<span class="st">"Acoes"</span>, <span class="st">"Fundos Listados"</span>].includes(f.tipo)) <span class="kw">return</span> <span class="st">"rv"</span>;
+  <span class="kw">return</span> <span class="st">"tributado"</span>;
+};</code></pre>
+  <p><strong>Racional:</strong> CRA/CRI/LCI/LCA sao isentos de IR por lei. Fundos sofrem come-cotas semestral. Acoes tem tributacao diferenciada (15% sobre ganho de capital).</p>
+
+  <h3>5.6 Come-Cotas Drag</h3>
+  <pre><code><span class="kw">const</span> dragCC = comecotasFunds.reduce((s, f) =&gt; {
+  <span class="kw">const</span> ganhoSem = f.total * (Math.pow(<span class="nu">1</span> + f.rentMes / <span class="nu">100</span>, <span class="nu">6</span>) - <span class="nu">1</span>);  <span class="cm">// retorno 6 meses</span>
+  <span class="kw">return</span> s + ganhoSem * <span class="nu">0.15</span> * <span class="nu">2</span>;  <span class="cm">// 15% x 2 semestres</span>
+}, <span class="nu">0</span>);
+<span class="kw">const</span> dragCCpct = totalComecotas &gt; <span class="nu">0</span> ? dragCC / totalComecotas * <span class="nu">100</span> : <span class="nu">0</span>;</code></pre>
+  <p><strong>Racional:</strong> O come-cotas antecipa IR 2x ao ano (maio e novembro). O drag mede quanto esse adiantamento custa em termos de juros compostos perdidos. Formula: projeta 6 meses de retorno, aplica 15% de IR, multiplica por 2 semestres.</p>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 9</span>
+  </div>
+</div>
+
+<!-- ==================== 05 cont ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">05 &mdash; Calculos (cont.)</span>
+    <span class="page-header-right">pag. 10</span>
+  </div>
+
+  <h3>5.7 Gross Equivalent (Equivalente Bruto)</h3>
+  <pre><code><span class="cm">// Para IPCA+ ou CDI+ (spread)</span>
+eq15  = p.base + (p.spread / (<span class="nu">1</span> - <span class="nu">0.15</span>)).toFixed(<span class="nu">2</span>) + <span class="st">"%"</span>;   <span class="cm">// aliquota 15%</span>
+eq225 = p.base + (p.spread / (<span class="nu">1</span> - <span class="nu">0.225</span>)).toFixed(<span class="nu">2</span>) + <span class="st">"%"</span>;  <span class="cm">// aliquota 22.5%</span>
+
+<span class="cm">// Para % CDI</span>
+eq15  = (p.spread / (<span class="nu">1</span> - <span class="nu">0.15</span>)).toFixed(<span class="nu">1</span>) + <span class="st">"% CDI"</span>;
+eq225 = (p.spread / (<span class="nu">1</span> - <span class="nu">0.225</span>)).toFixed(<span class="nu">1</span>) + <span class="st">"% CDI"</span>;</code></pre>
+  <p><strong>Racional:</strong> Um ativo isento que paga IPCA+6% equivale a um tributado pagando IPCA+7.06% (aliquota 15%) ou IPCA+7.74% (22.5%). A formula e <code>spread / (1 - aliquota)</code>.</p>
+
+  <h3>5.8 IR Medio Ponderado</h3>
+  <pre><code><span class="kw">const</span> patTrib = totalPat - totalIsento;
+<span class="kw">const</span> irMedio = patTrib &gt; <span class="nu">0</span> ? fundos.reduce((s, f) =&gt; {
+  <span class="kw">const</span> cat = <span class="fn">taxCat</span>(f);
+  <span class="kw">if</span> (cat === <span class="st">"isento"</span>) <span class="kw">return</span> s;
+  <span class="kw">if</span> (cat === <span class="st">"rv"</span> || cat === <span class="st">"comecotas"</span>) <span class="kw">return</span> s + <span class="nu">0.15</span> * f.total;
+  <span class="kw">return</span> s + <span class="fn">irBracket</span>(f.diasLiq) * f.total;
+}, <span class="nu">0</span>) / patTrib : <span class="nu">0</span>;</code></pre>
+
+  <h3>5.9 Perfil do Investidor</h3>
+  <pre><code><span class="kw">const</span> pctRV = totalList / totalPat * <span class="nu">100</span>;
+<span class="kw">const</span> perfilLabel = pctRV &gt; <span class="nu">20</span> ? <span class="st">"Agressivo"</span>
+  : pctRV &gt; <span class="nu">8</span> ? <span class="st">"Moderado-Agressivo"</span>
+  : pctPos &gt; <span class="nu">60</span> ? <span class="st">"Conservador"</span>
+  : <span class="st">"Moderado"</span>;</code></pre>
+
+  <h3>5.10 HHI &mdash; Indice de Concentracao</h3>
+  <pre><code><span class="kw">const</span> hhi = fundos.reduce((s, f) =&gt; {
+  <span class="kw">const</span> share = f.total / totalPat * <span class="nu">100</span>;
+  <span class="kw">return</span> s + share * share;
+}, <span class="nu">0</span>);
+<span class="kw">const</span> hhiClass = hhi &lt; <span class="nu">1500</span> ? <span class="st">"Diversificado"</span> : hhi &lt; <span class="nu">2500</span> ? <span class="st">"Moderado"</span> : <span class="st">"Concentrado"</span>;</code></pre>
+  <p><strong>Racional:</strong> O Herfindahl-Hirschman Index soma os quadrados das participacoes. HHI &lt; 1500 indica boa diversificacao, 1500-2500 moderada, &gt; 2500 concentrada. Mesmo indice usado pelo CADE/DOJ para fusoes.</p>
+
+  <h3>5.11 TER &mdash; Taxa de Despesa Total</h3>
+  <pre><code><span class="kw">const</span> wER = fundos.reduce((s, f) =&gt; s + (f.taxaAdmin || <span class="nu">0</span>) * f.total, <span class="nu">0</span>) / totalPat;
+<span class="kw">const</span> custoRS = wER / <span class="nu">100</span> * totalPat;  <span class="cm">// custo anual em R$</span></code></pre>
+
+  <h3>5.12 Duration, DV01 e Stress Test</h3>
+  <pre><code><span class="cm">// Duration por tipo de indexador (rule-of-thumb)</span>
+<span class="kw">let</span> durMac = prazoAnos * <span class="nu">0.9</span>;  <span class="cm">// default</span>
+<span class="kw">if</span> (indexador === <span class="st">"SELIC"</span> || indexador === <span class="st">"%CDI"</span>)    durMac = prazoAnos * <span class="nu">0.08</span>;
+<span class="kw">else if</span> (indexador === <span class="st">"PRE"</span>)                        durMac = prazoAnos * <span class="nu">0.95</span>;
+<span class="kw">else if</span> (indexador === <span class="st">"IPCA"</span>)                       durMac = prazoAnos * <span class="nu">0.82</span>;
+<span class="kw">else if</span> (indexador === <span class="st">"CDI+"</span>)                       durMac = prazoAnos * <span class="nu">0.15</span>;
+
+<span class="cm">// Duration Modificada</span>
+<span class="kw">const</span> durMod = durMac / (<span class="nu">1</span> + (yieldEst || <span class="nu">14</span>) / <span class="nu">200</span>);
+
+<span class="cm">// DV01 (Dollar Value of 1bp)</span>
+<span class="kw">const</span> dv01 = durMod * f.total * <span class="nu">0.0001</span>;
+
+<span class="cm">// Consolidado</span>
+<span class="kw">const</span> wDuration = allPositions.reduce((s, p) =&gt; s + p.durMod * p.total, <span class="nu">0</span>) / totalRF;
+<span class="kw">const</span> totalDV01 = allPositions.reduce((s, p) =&gt; s + p.dv01, <span class="nu">0</span>);</code></pre>
+
+  <div class="warn">
+    <div class="warn-title">Gap: Duration simplificada</div>
+    Os multiplicadores (0.08, 0.15, 0.82, 0.95) sao aproximacoes. O backend deveria calcular duration efetiva usando fluxos de caixa descontados quando disponivel a curva de juros.
+  </div>
+
+  <h3>5.13 Cenarios de Stress de Juros</h3>
+  <pre><code><span class="kw">const</span> scenarios = [
+  { label: <span class="st">"Alta +150bp"</span>, delta: <span class="nu">150</span> },
+  { label: <span class="st">"Alta +100bp"</span>, delta: <span class="nu">100</span> },
+  { label: <span class="st">"Alta +50bp"</span>,  delta: <span class="nu">50</span> },
+  { label: <span class="st">"Queda -50bp"</span>, delta: <span class="nu">-50</span> },
+  { label: <span class="st">"Queda -100bp"</span>,delta: <span class="nu">-100</span> },
+  { label: <span class="st">"Queda -150bp"</span>,delta: <span class="nu">-150</span> },
+].map(s =&gt; ({
+  ...s,
+  impacto: -totalDV01 * s.delta,
+  pct: (-totalDV01 * s.delta) / totalPat * <span class="nu">100</span>
+}));</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 10</span>
+  </div>
+</div>
+
+<!-- ==================== 05 cont ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">05 &mdash; Calculos (cont.)</span>
+    <span class="page-header-right">pag. 11</span>
+  </div>
+
+  <h3>5.14 Cenarios Historicos de Crise</h3>
+  <pre><code><span class="kw">const</span> historicos = [
+  { nome: <span class="st">"Joesley Day (2017)"</span>,    juros: <span class="nu">200</span>,  ibov: <span class="nu">-8.8</span>,  credito: <span class="nu">80</span> },
+  { nome: <span class="st">"Greve Caminhoneiros"</span>,   juros: <span class="nu">100</span>,  ibov: <span class="nu">-10.9</span>, credito: <span class="nu">50</span> },
+  { nome: <span class="st">"COVID (Mar/2020)"</span>,      juros: <span class="nu">250</span>,  ibov: <span class="nu">-29.9</span>, credito: <span class="nu">150</span> },
+  { nome: <span class="st">"Taper Tantrum (2013)"</span>,  juros: <span class="nu">300</span>,  ibov: <span class="nu">-15.5</span>, credito: <span class="nu">100</span> },
+  { nome: <span class="st">"Fiscal 2025"</span>,           juros: <span class="nu">180</span>,  ibov: <span class="nu">-4.5</span>,  credito: <span class="nu">60</span> },
+].map(h =&gt; {
+  <span class="kw">const</span> impJuros  = -totalDV01 * h.juros;
+  <span class="kw">const</span> impBolsa  = rvTotal * (h.ibov / <span class="nu">100</span>);
+  <span class="kw">const</span> impCredito = -creditTotal * (h.credito / <span class="nu">10000</span>) * (wDuration || <span class="nu">1</span>);
+  <span class="kw">const</span> impTotal  = impJuros + impBolsa + impCredito;
+  <span class="kw">return</span> { ...h, impJuros, impBolsa, impCredito, impTotal, pctTotal: impTotal / totalPat * <span class="nu">100</span> };
+});</code></pre>
+  <p><strong>Racional:</strong> Estima o impacto combinado de movimentos de juros (via DV01), bolsa (% do Ibov aplicado sobre exposicao RV) e credito (spread widening sobre renda fixa privada x duration). Os parametros sao baseados em eventos reais.</p>
+
+  <h3>5.15 Curva Selic Projetada (Interpolacao Linear)</h3>
+  <pre><code><span class="kw">const</span> cur = macro.selic?.atual || <span class="nu">15</span>;
+<span class="kw">const</span> term = macro.focus?.selicFim || <span class="nu">12.13</span>;
+<span class="kw">const</span> ms = [<span class="st">"Mar/26"</span>, <span class="st">"Mai/26"</span>, <span class="st">"Jun/26"</span>, <span class="st">"Ago/26"</span>, <span class="st">"Set/26"</span>, <span class="st">"Nov/26"</span>, <span class="st">"Dez/26"</span>];
+<span class="kw">const</span> cut = (cur - term) / ms.length;  <span class="cm">// step-down linear</span>
+<span class="kw">let</span> v = cur;
+ms.forEach(m =&gt; { v = Math.max(v - cut, term); });</code></pre>
+
+  <div class="warn">
+    <div class="warn-title">Gap: interpolacao simplificada</div>
+    A curva usa step-down linear. O backend deveria usar a curva Focus por reuniao do COPOM (disponivel em <code>macro.focusSelicCurva[]</code>) que reflete as expectativas reais do mercado para cada reuniao.
+  </div>
+
+  <h3>5.16 Simulacao FIP (Private Equity)</h3>
+  <pre><code><span class="cm">// Constantes hardcoded</span>
+<span class="kw">const</span> aporte = <span class="nu">5_000_000</span>;      <span class="cm">// R$ 5M investido</span>
+<span class="kw">const</span> moic25 = <span class="nu">2.5</span>;            <span class="cm">// cenario conservador</span>
+<span class="kw">const</span> moic30 = <span class="nu">3.0</span>;            <span class="cm">// cenario otimista</span>
+<span class="kw">const</span> tirAlvo = <span class="nu">0.23</span>;          <span class="cm">// 23% a.a.</span>
+<span class="kw">const</span> amortPct = <span class="nu">0.40</span>;         <span class="cm">// 40% devolvido Q1/2028</span>
+
+<span class="cm">// CDI acumulado no periodo</span>
+<span class="kw">const</span> cdiCarrego = [
+  { per: <span class="st">"2026 (9m)"</span>, taxa: (selicAtual + selicFim) / <span class="nu">2</span> / <span class="nu">100</span>, frac: <span class="nu">9/12</span> },
+  { per: <span class="st">"2027"</span>,      taxa: (selicFim + selicProx) / <span class="nu">2</span> / <span class="nu">100</span>, frac: <span class="nu">1</span> },
+  { per: <span class="st">"2028"</span>,      taxa: selicProx / <span class="nu">100</span>,               frac: <span class="nu">1</span> },
+  { per: <span class="st">"2029"</span>,      taxa: selicProx / <span class="nu">100</span>,               frac: <span class="nu">1</span> },
+  { per: <span class="st">"1T/2030"</span>,   taxa: selicProx / <span class="nu">100</span>,               frac: <span class="nu">0.25</span> },
+];
+<span class="kw">let</span> cdiFactor = <span class="nu">1</span>;
+cdiCarrego.forEach(a =&gt; { cdiFactor *= Math.pow(<span class="nu">1</span> + a.taxa, a.frac); });
+
+<span class="cm">// Alpha vs CDI</span>
+<span class="kw">const</span> cdiGross = aporte * cdiFactor;
+<span class="kw">const</span> cdiNet = cdiGross - (cdiGross - aporte) * <span class="nu">0.15</span>;  <span class="cm">// IR 15%</span>
+<span class="kw">const</span> alpha25 = liq25 - cdiNet;  <span class="cm">// alpha para MOIC 2.5x</span></code></pre>
+
+  <h3>5.17 Mandato e Metas</h3>
+  <pre><code><span class="kw">const</span> metas = {
+  retCDI: <span class="nu">100</span>,       <span class="cm">// target: 100% do CDI</span>
+  volMax: <span class="nu">2.0</span>,       <span class="cm">// volatilidade maxima: 2%</span>
+  metaAnual: <span class="nu">14.0</span>,   <span class="cm">// retorno anual alvo: 14% a.a.</span>
+};
+
+<span class="cm">// Progress bar</span>
+progress = Math.min(wCDI / metas.retCDI, <span class="nu">1.2</span>);  <span class="cm">// cap em 120%</span>
+ok = wCDI &gt;= metas.retCDI;
+near = wCDI &gt;= metas.retCDI * <span class="nu">0.95</span>;  <span class="cm">// dentro de 5% do alvo</span></code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 11</span>
+  </div>
+</div>
+
+<!-- ==================== 05 cont - Financial Planning ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">05 &mdash; Calculos (cont.)</span>
+    <span class="page-header-right">pag. 12</span>
+  </div>
+
+  <h3>5.18 Financial Planning &mdash; Projecao 60 Meses (Client B)</h3>
+  <pre><code><span class="cm">// Metas</span>
+<span class="kw">const</span> targetBRL = <span class="nu">10_000_000</span>;    <span class="cm">// R$ 10 milhoes</span>
+<span class="kw">const</span> targetUSD = <span class="nu">1_000_000</span>;     <span class="cm">// US$ 1 milhao</span>
+<span class="kw">const</span> H = <span class="nu">60</span>;                     <span class="cm">// horizonte 60 meses</span>
+
+<span class="cm">// Renda passiva (estado final)</span>
+<span class="kw">const</span> rendaAA = <span class="nu">0.12</span>;     <span class="cm">// 12% a.a. de retorno</span>
+<span class="kw">const</span> ipcaAA = <span class="nu">0.045</span>;    <span class="cm">// 4.5% a.a. de inflacao</span>
+<span class="kw">const</span> irRate = <span class="nu">0.15</span>;     <span class="cm">// 15% de IR</span>
+
+<span class="cm">// 3 cenarios BRL</span>
+Conservador: <span class="nu">8</span>% a.a.  |  Base (CDI): <span class="nu">12</span>% a.a.  |  Otimista: <span class="nu">15</span>% a.a.
+
+<span class="cm">// Patrimonio BRL inclui</span>
+finBRL = totalPat + ext.resumo.totalLiquidez + ext.resumo.totalAlternativos + ext.resumo.totalMutuos;
+
+<span class="cm">// Rotacoes (entrada de capital em meses especificos)</span>
+Borcath:     <span class="nu">30</span>% x <span class="nu">30</span> meses = mes <span class="nu">8</span>
+COE Bolsa:   vencimento mes <span class="nu">16</span> (Jul/2027)
+CRA ACP Bio: vencimento mes <span class="nu">32</span> (Nov/2028)</code></pre>
+
+  <h3>5.19 Solver de Remessa USD</h3>
+  <pre><code><span class="cm">// Binary search: encontra remessa mensal para atingir US$ 1M em 60 meses</span>
+<span class="kw">function</span> <span class="fn">solveMonthlyUSD</span>(usdRate) {
+  <span class="kw">let</span> lo = <span class="nu">0</span>, hi = <span class="nu">50000</span>;  <span class="cm">// range: US$ 0 a US$ 50k/mes</span>
+  <span class="kw">while</span> (hi - lo &gt; <span class="nu">1</span>) {
+    <span class="kw">const</span> mid = (lo + hi) / <span class="nu">2</span>;
+    <span class="kw">const</span> final = simulate(mid, usdRate);  <span class="cm">// roda 60 meses</span>
+    <span class="kw">if</span> (final &gt;= targetUSD) hi = mid;
+    <span class="kw">else</span> lo = mid;
+  }
+  <span class="kw">return</span> hi;
+}</code></pre>
+
+  <h3>5.20 Renda Passiva (Estado Final)</h3>
+  <pre><code><span class="cm">// Com patrimonio de R$ 10M ao final do horizonte</span>
+<span class="kw">const</span> rendaBruta   = targetBRL * rendaAA;           <span class="cm">// R$ 1.200.000/ano</span>
+<span class="kw">const</span> rendaLiqIR   = rendaBruta * (<span class="nu">1</span> - irRate);     <span class="cm">// R$ 1.020.000/ano</span>
+<span class="kw">const</span> reinvIPCA    = targetBRL * ipcaAA;             <span class="cm">// R$ 450.000/ano (manter poder de compra)</span>
+<span class="kw">const</span> rendaReal    = rendaLiqIR - reinvIPCA;         <span class="cm">// R$ 570.000/ano</span>
+<span class="kw">const</span> rendaMensal  = rendaReal / <span class="nu">12</span>;                 <span class="cm">// ~R$ 47.500/mes</span></code></pre>
+
+  <h3>5.21 Liquidez e Carryover</h3>
+  <pre><code><span class="cm">// Pool de liquidez: acumula vencimentos + CDI carry</span>
+<span class="kw">let</span> liqPool = totalLiq;
+mesesAno.forEach(m =&gt; {
+  <span class="kw">const</span> cdiMensal = <span class="fn">mf</span>(selicMes[m]);       <span class="cm">// taxa mensal da Selic</span>
+  liqPool *= (<span class="nu">1</span> + cdiMensal);               <span class="cm">// carry sobre pool</span>
+
+  <span class="cm">// Ativos vencendo neste mes entram no pool</span>
+  <span class="kw">const</span> vencMes = vencAccrued.filter(v =&gt; vencMesNum(v) === mesNum);
+  liqPool += vencMes.reduce((s, v) =&gt; s + v.accrued, <span class="nu">0</span>);
+});</code></pre>
+
+  <div class="tip">
+    <div class="tip-title">Dica para o backend</div>
+    O solver USD usa binary search porque nao ha formula fechada (as rotacoes criam descontinuidades). No backend, implementar como um service dedicado <code>FinancialPlanningService.solveMonthlyRemittance()</code> com cache do resultado.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 12</span>
+  </div>
+</div>
+
+<!-- ==================== 05 cont - Data Structures ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">05 &mdash; Estrutura de Dados</span>
+    <span class="page-header-right">pag. 13-14</span>
+  </div>
+
+  <h3>5.22 Estrutura Completa: cliente.json</h3>
+  <pre><code>{
+  <span class="st">"referencia"</span>: <span class="st">"27/02/2026"</span>,
+  <span class="st">"geradoEm"</span>: <span class="st">"13/03/2026"</span>,
+  <span class="st">"assessor"</span>: <span class="st">"Nome do Assessor"</span>,
+  <span class="st">"banker"</span>: <span class="st">"Nome do Banker"</span>,
+  <span class="st">"clienteLabel"</span>: <span class="st">"Nome do Cliente"</span>,
+
+  <span class="st">"empresas"</span>: [{
+    <span class="st">"conta"</span>: <span class="st">"XXXXXX"</span>,
+    <span class="st">"nome"</span>: <span class="st">"Empresa XYZ"</span>,
+    <span class="st">"tipo"</span>: <span class="st">"Private"</span>,          <span class="cm">// Private | Signature | Regular</span>
+    <span class="st">"patrimonio"</span>: <span class="nu">1291128.59</span>,
+    <span class="st">"rentMes"</span>: <span class="nu">1.07</span>,             <span class="cm">// % retorno mensal</span>
+    <span class="st">"ganhoMes"</span>: <span class="nu">12149.27</span>,        <span class="cm">// R$ ganho absoluto</span>
+    <span class="st">"pctCDI"</span>: <span class="nu">107.38</span>,           <span class="cm">// % do CDI no mes</span>
+    <span class="st">"rentAno"</span>: <span class="nu">2.28</span>,            <span class="cm">// % retorno YTD</span>
+    <span class="st">"pctCDIAno"</span>: <span class="nu">105.0</span>,
+    <span class="st">"volatilidade"</span>: <span class="nu">0.45</span>,       <span class="cm">// desvio padrao</span>
+    <span class="st">"mesesPositivos"</span>: <span class="nu">24</span>,
+    <span class="st">"mesesNegativos"</span>: <span class="nu">0</span>,
+    <span class="st">"mesesAcimaCDI"</span>: <span class="nu">19</span>,
+    <span class="st">"mesesAbaixoCDI"</span>: <span class="nu">5</span>,
+    <span class="st">"mensal"</span>: [
+      { <span class="st">"mes"</span>: <span class="st">"Mar/25"</span>, <span class="st">"rent"</span>: <span class="nu">0.98</span>, <span class="st">"pctCDI"</span>: <span class="nu">103.2</span> }
+    ],
+    <span class="st">"evolucaoPatrimonial"</span>: [
+      { <span class="st">"mes"</span>: <span class="st">"Mar/25"</span>, <span class="st">"pat"</span>: <span class="nu">1250000</span> }
+    ],
+    <span class="st">"estrategia"</span>: [
+      { <span class="st">"nome"</span>: <span class="st">"Pos Fixado"</span>, <span class="st">"pct"</span>: <span class="nu">45.2</span>, <span class="st">"valor"</span>: <span class="nu">583000</span> }
+    ]
+  }],
+
+  <span class="st">"fundos"</span>: [{
+    <span class="st">"conta"</span>: <span class="st">"XXXXXX"</span>,
+    <span class="st">"curto"</span>: <span class="st">"Nome do Fundo"</span>,
+    <span class="st">"classe"</span>: <span class="st">"Renda Fixa"</span>,
+    <span class="st">"tipo"</span>: <span class="st">"CDB"</span>,             <span class="cm">// CDB, LF, CRA, CRI, NTN-B, Fundos, Acoes, COE, FIP...</span>
+    <span class="st">"taxa"</span>: <span class="st">"CDI + 1.5%"</span>,      <span class="cm">// ou "IPCA + 6%", "Pre 11.5%", "105% CDI"</span>
+    <span class="st">"liquidez"</span>: <span class="st">"Diaria"</span>,       <span class="cm">// ou "Dez/26", "Venc. Mar/28"</span>
+    <span class="st">"total"</span>: <span class="nu">500000</span>,
+    <span class="st">"pctCart"</span>: <span class="nu">3.85</span>,
+    <span class="st">"rentMes"</span>: <span class="nu">1.12</span>,
+    <span class="st">"pctCDIMes"</span>: <span class="nu">108.5</span>,
+    <span class="st">"gestora"</span>: <span class="st">"XP Asset"</span>,
+    <span class="st">"cnpj"</span>: <span class="st">"XX.XXX.XXX/XXXX-XX"</span>,
+    <span class="st">"diasCorridos"</span>: <span class="nu">730</span>,
+    <span class="st">"taxaAdmin"</span>: <span class="nu">0.50</span>,         <span class="cm">// % a.a.</span>
+    <span class="st">"taxaPerf"</span>: <span class="nu">20.0</span>,          <span class="cm">// % sobre excedente</span>
+    <span class="st">"segmento"</span>: <span class="st">"Credito Privado"</span>,
+    <span class="st">"isentoIR"</span>: <span class="kw">false</span>
+  }],
+
+  <span class="st">"benchmarks"</span>: {
+    <span class="st">"cdi"</span>:     { <span class="st">"mes"</span>: <span class="nu">1.00</span>, <span class="st">"ano"</span>: <span class="nu">2.12</span>, <span class="st">"m12"</span>: <span class="nu">12.5</span>, <span class="st">"m24"</span>: <span class="nu">25.8</span> },
+    <span class="st">"ibovespa"</span>: { <span class="st">"mes"</span>: <span class="nu">-2.3</span>, <span class="st">"ano"</span>: <span class="nu">-4.1</span> },
+    <span class="st">"ipca"</span>:    { <span class="st">"mes"</span>: <span class="nu">0.56</span>, <span class="st">"ano"</span>: <span class="nu">1.2</span> },
+    <span class="st">"dolar"</span>:   { <span class="st">"mes"</span>: <span class="nu">1.8</span>,  <span class="st">"ano"</span>: <span class="nu">5.2</span> }
+  },
+
+  <span class="cm">// APENAS CLIENT B</span>
+  <span class="st">"externos"</span>: {
+    <span class="st">"mutuos"</span>: [{ <span class="st">"nome"</span>: <span class="st">"Borcath"</span>, <span class="st">"valor"</span>: <span class="nu">200000</span>, <span class="st">"vencimento"</span>: <span class="st">"Nov/28"</span> }],
+    <span class="st">"alternativos"</span>: [{ <span class="st">"nome"</span>: <span class="st">"FIP AG7"</span>, <span class="st">"valor"</span>: <span class="nu">5000000</span> }],
+    <span class="st">"contaDolar"</span>: { <span class="st">"saldo"</span>: <span class="nu">82000</span>, <span class="st">"moeda"</span>: <span class="st">"USD"</span> },
+    <span class="st">"imoveis"</span>: [{ <span class="st">"descricao"</span>: <span class="st">"Apto SP"</span>, <span class="st">"valor"</span>: <span class="nu">1380000</span> }],
+    <span class="st">"resumo"</span>: { <span class="st">"totalLiquidez"</span>: <span class="nu">0</span>, <span class="st">"totalAlternativos"</span>: <span class="nu">5000000</span>, <span class="st">"totalMutuos"</span>: <span class="nu">770000</span> }
+  }
+}</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 13-14</span>
+  </div>
+</div>
+
+<!-- ==================== 06 APIs ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">06 &mdash; APIs e Fontes de Dados</span>
+    <span class="page-header-right">pag. 15</span>
+  </div>
+
+  <h2><span class="section-num">06</span> APIs e Fontes de Dados</h2>
+
+  <h3>6.1 BCB SGS (Sistema Gerenciador de Series)</h3>
+  <table>
+    <thead><tr><th>Serie</th><th>ID</th><th>Endpoint</th><th>Dado</th></tr></thead>
+    <tbody>
+      <tr><td>Selic meta</td><td>432</td><td><code>api.bcb.gov.br/dados/serie/bcdata.sgs.432/dados</code></td><td>% a.a.</td></tr>
+      <tr><td>CDI anualizado</td><td>4389</td><td><code>...sgs.4389/dados</code></td><td>% a.a. base 252</td></tr>
+      <tr><td>CDI acum. mes</td><td>4391</td><td><code>...sgs.4391/dados</code></td><td>% a.m.</td></tr>
+      <tr><td>IPCA mensal</td><td>433</td><td><code>...sgs.433/dados</code></td><td>% variacao</td></tr>
+      <tr><td>IPCA 12M</td><td>13522</td><td><code>...sgs.13522/dados</code></td><td>% acumulado</td></tr>
+      <tr><td>PTAX compra</td><td>1</td><td><code>...sgs.1/dados</code></td><td>R$/US$</td></tr>
+    </tbody>
+  </table>
+  <p>Formato: <code>?formato=json&dataInicial=01/01/2024&dataFinal=26/03/2026</code>. Sem autenticacao. Rate limit: ~100 req/min.</p>
+
+  <h3>6.2 BCB Focus (OLINDA)</h3>
+  <pre><code>Base: https://olinda.bcb.gov.br/olinda/servico/Expectativas/versao/v1/odata/
+
+<span class="cm">// Projecoes anuais</span>
+ExpectativasMercadoAnuais?$filter=Indicador eq <span class="st">'IPCA'</span> and Data ge <span class="st">'2026-01-01'</span>
+  &amp;$orderby=Data desc&amp;$top=1&amp;$select=Mediana,DataReferencia
+
+<span class="cm">// Selic por reuniao COPOM</span>
+ExpectativasMercadoSelic?$filter=Reuniao eq <span class="st">'R2/2026'</span>
+  &amp;$orderby=Data desc&amp;$top=1&amp;$select=Mediana,Respondentes</code></pre>
+
+  <h3>6.3 Yahoo Finance v8</h3>
+  <pre><code>Base: https://query2.finance.yahoo.com/v8/finance/chart/{SYMBOL}
+
+Simbolos:
+  ^BVSP    <span class="cm">// Ibovespa</span>
+  GC=F     <span class="cm">// Ouro (USD/oz)</span>
+  ^GSPC    <span class="cm">// S&P 500</span>
+  DX-Y.NYB <span class="cm">// DXY (Dollar Index)</span>
+  BTC-USD  <span class="cm">// Bitcoin</span>
+  ^TNX     <span class="cm">// US Treasury 10Y yield</span>
+  CL=F     <span class="cm">// WTI Oil</span>
+  ^VIX     <span class="cm">// VIX volatility</span>
+
+Retorna: price, previousClose, YTD% (calculado)</code></pre>
+
+  <h3>6.4 AwesomeAPI</h3>
+  <pre><code>GET https://economia.awesomeapi.com.br/last/USD-BRL
+
+Retorna: { USDBRL: { bid, ask, varBid, pctChange, timestamp } }</code></pre>
+
+  <div class="tip">
+    <div class="tip-title">Dica para o backend</div>
+    Criar um <code>MacroDataService</code> que roda como cron job (ex: 1x/dia as 7h e 18h). Salvar snapshots no banco para historico. O frontend nunca chama APIs externas diretamente &mdash; sempre via API interna.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 15</span>
+  </div>
+</div>
+
+<!-- ==================== 07 PIPELINE ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">07 &mdash; Pipeline de Dados</span>
+    <span class="page-header-right">pag. 16</span>
+  </div>
+
+  <h2><span class="section-num">07</span> Pipeline de Dados &mdash; Ingestao e Extracao</h2>
+
+  <h3>7.1 Fluxo Atual (Manual)</h3>
+  <pre><code>
+  1. Assessor recebe PDF "XP Performance" mensalmente
+  2. Abre o PDF e copia dados manualmente
+  3. Edita src/data/cliente.json com os novos valores
+  4. Roda npm run dev para verificar
+  5. Roda npm run pdf para gerar relatorio
+  </code></pre>
+
+  <h3>7.2 Extracao de PDFs (Assistida por IA)</h3>
+  <p>Quando o assessor fornece o PDF do XP Performance, a extracao e feita via bibliotecas de parsing:</p>
+  <table>
+    <thead><tr><th>Linguagem</th><th>Biblioteca</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Node.js</td><td><code>pdf-parse</code></td><td>Extracao de texto simples de PDFs</td></tr>
+      <tr><td>Python</td><td><code>pdfplumber</code></td><td>Extracao de tabelas com coordenadas</td></tr>
+      <tr><td>Python</td><td><code>PyPDF2</code></td><td>Manipulacao basica de PDFs</td></tr>
+      <tr><td>Python</td><td><code>tesseract</code> (OCR)</td><td>PDFs escaneados (imagem)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.3 Extracao de Excel/CSV</h3>
+  <table>
+    <thead><tr><th>Linguagem</th><th>Biblioteca</th><th>Uso</th></tr></thead>
+    <tbody>
+      <tr><td>Node.js</td><td><code>xlsx</code> (SheetJS)</td><td>Leitura/escrita de .xlsx e .csv</td></tr>
+      <tr><td>Node.js</td><td><code>ExcelJS</code></td><td>Manipulacao avancada com estilos</td></tr>
+      <tr><td>Python</td><td><code>openpyxl</code></td><td>Leitura/escrita de .xlsx</td></tr>
+      <tr><td>Python</td><td><code>pandas</code></td><td>DataFrames para transformacao</td></tr>
+    </tbody>
+  </table>
+
+  <h3>7.4 Fluxo Ideal (Backend)</h3>
+  <pre><code>
+  1. Assessor faz upload do PDF via dashboard
+  2. Backend recebe arquivo e envia para parser service
+  3. Parser extrai tabelas e valida schema
+  4. Dados sao inseridos no banco (com auditoria)
+  5. Frontend recarrega automaticamente via API
+  6. PDF do relatorio e gerado server-side
+  </code></pre>
+
+  <div class="warn">
+    <div class="warn-title">Desafio: formato do PDF XP</div>
+    O PDF do XP Performance nao tem formato fixo. Tabelas podem mudar de posicao entre versoes. O parser precisa ser robusto e idealmente usar IA (GPT/Claude) para extrair dados de forma semantica, nao posicional.
+  </div>
+
+  <h2><span class="section-num">08</span> Geracao de PDF (Puppeteer)</h2>
+
+  <h3>8.1 Configuracao do Browser</h3>
+  <pre><code><span class="kw">const</span> browser = <span class="kw">await</span> puppeteer.launch({
+  headless: <span class="st">"new"</span>,
+  args: [<span class="st">"--no-sandbox"</span>, <span class="st">"--disable-setuid-sandbox"</span>, <span class="st">"--disable-gpu"</span>, <span class="st">"--font-render-hinting=none"</span>]
+});
+
+<span class="kw">await</span> page.setViewport({ width: <span class="nu">794</span>, height: <span class="nu">1123</span>, deviceScaleFactor: <span class="nu">2</span> });
+<span class="kw">await</span> page.goto(url + <span class="st">"?print=1"</span>, { waitUntil: <span class="st">"networkidle0"</span> });
+<span class="kw">await</span> page.waitForSelector(<span class="st">".recharts-wrapper"</span>);
+<span class="kw">await</span> page.evaluate(() =&gt; document.fonts.ready);</code></pre>
+
+  <h3>8.2 Opcoes de Impressao</h3>
+  <pre><code><span class="kw">await</span> page.pdf({
+  format: <span class="st">"A4"</span>,
+  printBackground: <span class="kw">true</span>,
+  displayHeaderFooter: <span class="kw">true</span>,
+  preferCSSPageSize: <span class="kw">false</span>,
+  margin: { top: <span class="st">"12mm"</span>, bottom: <span class="st">"18mm"</span>, left: <span class="st">"10mm"</span>, right: <span class="st">"10mm"</span> },
+  headerTemplate: <span class="st">`&lt;div style="font-size:7px; color:#999; width:100%; padding:0 10mm;"&gt;
+    &lt;span&gt;Patrimonium&lt;/span&gt;
+    &lt;span style="float:right"&gt;Confidencial&lt;/span&gt;
+  &lt;/div&gt;`</span>,
+  footerTemplate: <span class="st">`&lt;div style="font-size:7px; color:#999; width:100%; padding:0 10mm;"&gt;
+    &lt;span&gt;Patrimonium&lt;/span&gt;
+    &lt;span style="float:right"&gt;Pagina &lt;span class="pageNumber"&gt;&lt;/span&gt; de &lt;span class="totalPages"&gt;&lt;/span&gt;&lt;/span&gt;
+  &lt;/div&gt;`</span>
+});</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 16</span>
+  </div>
+</div>
+
+<!-- ==================== 09 SCRIPTS + 10 GAPS ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">09 &mdash; Scripts / 10 &mdash; Gaps</span>
+    <span class="page-header-right">pag. 17</span>
+  </div>
+
+  <h2><span class="section-num">09</span> Scripts Auxiliares</h2>
+  <table>
+    <thead><tr><th>Script</th><th>Linguagem</th><th>Biblioteca</th><th>Output</th></tr></thead>
+    <tbody>
+      <tr><td><code>fetch-macro.mjs</code></td><td>Node.js (ESM)</td><td>fetch nativo</td><td><code>src/data/macro.json</code></td></tr>
+      <tr><td><code>generate-pdf.mjs</code></td><td>Node.js (ESM)</td><td>Puppeteer</td><td><code>output/*.pdf</code></td></tr>
+      <tr><td><code>generate-guide.py</code></td><td>Python</td><td>ReportLab</td><td><code>output/Guia_Apresentacao.pdf</code></td></tr>
+      <tr><td><code>generate-roadmap.py</code></td><td>Python</td><td>ReportLab</td><td><code>output/Roadmap_IA.pdf</code></td></tr>
+      <tr><td><code>generate-summary-report.py</code></td><td>Python</td><td>ReportLab</td><td><code>output/Relatorio_Racional.pdf</code></td></tr>
+      <tr><td><code>gen-audit-doc.cjs</code></td><td>Node.js (CJS)</td><td>docx</td><td><code>AUDITORIA_TECNICA.docx</code></td></tr>
+    </tbody>
+  </table>
+
+  <h2 style="margin-top: 20px;"><span class="section-num">10</span> Inconsistencias e Gaps Identificados</h2>
+
+  <h3>Criticos</h3>
+  <table>
+    <thead><tr><th>#</th><th>Gap</th><th>Impacto</th><th>Acao</th></tr></thead>
+    <tbody>
+      <tr><td>1</td><td>Codigo duplicado entre clients (2.287 + 3.010 linhas)</td><td><span class="tag tag-red">CRITICO</span></td><td>Componentizar e consumir via API</td></tr>
+      <tr><td>2</td><td>Zero testes automatizados</td><td><span class="tag tag-red">CRITICO</span></td><td>Jest + React Testing Library + e2e</td></tr>
+      <tr><td>3</td><td>Zero commits no Git</td><td><span class="tag tag-red">CRITICO</span></td><td>Commit inicial + CI/CD</td></tr>
+      <tr><td>4</td><td>Calculos inline no JSX (sem modulo de utils)</td><td><span class="tag tag-red">CRITICO</span></td><td>Mover para services no backend</td></tr>
+      <tr><td>5</td><td>Dados manuais (cliente.json editado a mao)</td><td><span class="tag tag-red">CRITICO</span></td><td>Ingestao via upload + parser</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Altos</h3>
+  <table>
+    <thead><tr><th>#</th><th>Gap</th><th>Impacto</th><th>Acao</th></tr></thead>
+    <tbody>
+      <tr><td>6</td><td>TypeScript instalado mas nao usado</td><td><span class="tag tag-amber">ALTO</span></td><td>Migrar para .tsx</td></tr>
+      <tr><td>7</td><td>Tab routing: T5 ausente, numeracao confusa</td><td><span class="tag tag-amber">ALTO</span></td><td>Renomear para nomes semanticos</td></tr>
+      <tr><td>8</td><td>Print mode divergente entre clients</td><td><span class="tag tag-amber">ALTO</span></td><td>Unificar PageHead vs SectionDivider</td></tr>
+      <tr><td>9</td><td>Externos: Client B tem, Client A nao</td><td><span class="tag tag-amber">ALTO</span></td><td>Tornar modular (feature flag)</td></tr>
+      <tr><td>10</td><td>Duration com multiplicadores rule-of-thumb</td><td><span class="tag tag-amber">ALTO</span></td><td>Calcular via fluxo de caixa</td></tr>
+      <tr><td>11</td><td>Graficos suprimidos (scatter, ETTJ)</td><td><span class="tag tag-amber">ALTO</span></td><td>Ativar ou remover codigo morto</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Medios</h3>
+  <table>
+    <thead><tr><th>#</th><th>Gap</th><th>Impacto</th><th>Acao</th></tr></thead>
+    <tbody>
+      <tr><td>12</td><td>Hardcoded: FIP R$ 5M, MOIC 2.5x/3.0x, TIR 23%</td><td><span class="tag tag-navy">MEDIO</span></td><td>Parametrizar via banco/config</td></tr>
+      <tr><td>13</td><td>Tooltips inconsistentes (MinTip vs inline)</td><td><span class="tag tag-navy">MEDIO</span></td><td>Padronizar um componente</td></tr>
+      <tr><td>14</td><td>Selic curve: interpolacao linear (nao usa Focus)</td><td><span class="tag tag-navy">MEDIO</span></td><td>Usar focusSelicCurva</td></tr>
+      <tr><td>15</td><td>CSS todo inline (nenhum CSS Module ou Tailwind)</td><td><span class="tag tag-navy">MEDIO</span></td><td>Migrar para sistema de design</td></tr>
+      <tr><td>16</td><td>Pagina numbering manual no print</td><td><span class="tag tag-navy">MEDIO</span></td><td>Usar CSS counters ou Puppeteer</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 17</span>
+  </div>
+</div>
+
+<!-- ==================== 11 PRISMA SCHEMA ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">11 &mdash; Schema Prisma</span>
+    <span class="page-header-right">pag. 18</span>
+  </div>
+
+  <h2><span class="section-num">11</span> Proposta de Schema &mdash; NestJS + Prisma + PostgreSQL</h2>
+
+  <p>Schema baseado na estrutura de dados atual (cliente.json + macro.json). Pronto para <code>prisma migrate dev</code>.</p>
+
+  <h3>11.1 Enums</h3>
+  <pre class="prisma-schema"><code><span class="kw">enum</span> <span class="ty">AccountType</span> {
+  PRIVATE
+  SIGNATURE
+  REGULAR
+}
+
+<span class="kw">enum</span> <span class="ty">AssetClass</span> {
+  RENDA_FIXA
+  MULTIMERCADO
+  RENDA_VARIAVEL
+  CAMBIAL
+  ALTERNATIVOS
+  IMOBILIARIO
+}
+
+<span class="kw">enum</span> <span class="ty">AssetType</span> {
+  CDB
+  LF
+  LCI
+  LCA
+  CRA
+  CRI
+  NTN_B
+  LFT
+  LTN
+  DEBENTURE
+  FUNDOS
+  ACOES
+  FUNDOS_LISTADOS
+  COE
+  FIP
+  FIDC
+}
+
+<span class="kw">enum</span> <span class="ty">TaxCategory</span> {
+  ISENTO
+  COMECOTAS
+  TRIBUTADO
+  RENDA_VARIAVEL
+}
+
+<span class="kw">enum</span> <span class="ty">Indexer</span> {
+  CDI
+  CDI_PLUS
+  IPCA_PLUS
+  PRE
+  SELIC
+  DOLAR
+}
+
+<span class="kw">enum</span> <span class="ty">Role</span> {
+  ADMIN
+  ADVISOR
+  CLIENT
+  VIEWER
+}</code></pre>
+
+  <h3>11.2 Tabelas Core</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">User</span> {
+  id          String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  email       String   <span class="fn">@unique</span>
+  name        String
+  role        <span class="ty">Role</span>     <span class="fn">@default</span>(VIEWER)
+  createdAt   DateTime <span class="fn">@default</span>(now())
+  updatedAt   DateTime <span class="fn">@updatedAt</span>
+
+  clients     <span class="ty">Client</span>[]
+}
+
+<span class="kw">model</span> <span class="ty">Client</span> {
+  id           String      <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  label        String                              <span class="cm">// "Nome do Cliente"</span>
+  advisorName  String                              <span class="cm">// assessor</span>
+  bankerName   String?                             <span class="cm">// banker</span>
+  userId       String
+  user         <span class="ty">User</span>        <span class="fn">@relation</span>(fields: [userId], references: [id])
+  createdAt    DateTime    <span class="fn">@default</span>(now())
+  updatedAt    DateTime    <span class="fn">@updatedAt</span>
+
+  accounts     <span class="ty">Account</span>[]
+  externalAssets <span class="ty">ExternalAsset</span>[]
+  reports      <span class="ty">Report</span>[]
+  snapshots    <span class="ty">PortfolioSnapshot</span>[]
+
+  <span class="fn">@@index</span>([userId])
+}
+
+<span class="kw">model</span> <span class="ty">Account</span> {
+  id           String      <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  accountNumber String                             <span class="cm">// conta XP</span>
+  name         String                              <span class="cm">// nome da empresa</span>
+  type         <span class="ty">AccountType</span>                        <span class="cm">// Private, Signature, Regular</span>
+  clientId     String
+  client       <span class="ty">Client</span>     <span class="fn">@relation</span>(fields: [clientId], references: [id], onDelete: Cascade)
+  createdAt    DateTime    <span class="fn">@default</span>(now())
+
+  positions    <span class="ty">Position</span>[]
+  monthlyReturns <span class="ty">MonthlyReturn</span>[]
+  patrimonyHistory <span class="ty">PatrimonyHistory</span>[]
+  strategies   <span class="ty">Strategy</span>[]
+
+  <span class="fn">@@unique</span>([clientId, accountNumber])
+  <span class="fn">@@index</span>([clientId])
+}</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 18</span>
+  </div>
+</div>
+
+<!-- ==================== 11 cont - SCHEMA ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">11 &mdash; Schema Prisma (cont.)</span>
+    <span class="page-header-right">pag. 19</span>
+  </div>
+
+  <h3>11.3 Posicoes e Fundos</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">Position</span> {
+  id            String      <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  accountId     String
+  account       <span class="ty">Account</span>    <span class="fn">@relation</span>(fields: [accountId], references: [id], onDelete: Cascade)
+
+  shortName     String                    <span class="cm">// curto</span>
+  assetClass    <span class="ty">AssetClass</span>                <span class="cm">// classe</span>
+  assetType     <span class="ty">AssetType</span>                 <span class="cm">// tipo</span>
+  taxCategory   <span class="ty">TaxCategory</span>               <span class="cm">// classificacao tributaria (calculado)</span>
+
+  indexer       <span class="ty">Indexer</span>?                  <span class="cm">// CDI, IPCA+, PRE, etc</span>
+  spread        Float?                    <span class="cm">// spread sobre indexador</span>
+  rateString    String?                   <span class="cm">// taxa original: "IPCA + 6%"</span>
+
+  liquidity     String?                   <span class="cm">// "Diaria", "Dez/26"</span>
+  maturityDate  DateTime?                 <span class="cm">// data de vencimento</span>
+  daysToMaturity Int?                     <span class="cm">// diasCorridos</span>
+
+  currentValue  Float                     <span class="cm">// total em R$</span>
+  portfolioPct  Float?                    <span class="cm">// % da carteira</span>
+
+  returnMonth   Float?                    <span class="cm">// rentMes %</span>
+  cdiPctMonth   Float?                    <span class="cm">// pctCDI %</span>
+
+  manager       String?                   <span class="cm">// gestora</span>
+  cnpj          String?                   <span class="cm">// CNPJ do fundo</span>
+  adminFee      Float?                    <span class="cm">// taxaAdmin % a.a.</span>
+  perfFee       Float?                    <span class="cm">// taxaPerf %</span>
+  segment       String?                   <span class="cm">// segmento</span>
+  isTaxExempt   Boolean    <span class="fn">@default</span>(false) <span class="cm">// isentoIR</span>
+
+  referenceDate DateTime                  <span class="cm">// data de referencia</span>
+  createdAt     DateTime   <span class="fn">@default</span>(now())
+
+  <span class="fn">@@index</span>([accountId])
+  <span class="fn">@@index</span>([assetType])
+  <span class="fn">@@index</span>([referenceDate])
+}</code></pre>
+
+  <h3>11.4 Historico Mensal</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">MonthlyReturn</span> {
+  id           String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  accountId    String
+  account      <span class="ty">Account</span> <span class="fn">@relation</span>(fields: [accountId], references: [id], onDelete: Cascade)
+
+  month        String                    <span class="cm">// "Mar/25"</span>
+  monthDate    DateTime                  <span class="cm">// 2025-03-01 (para ordenacao)</span>
+  returnPct    Float                     <span class="cm">// rent %</span>
+  cdiPct       Float                     <span class="cm">// pctCDI %</span>
+
+  <span class="fn">@@unique</span>([accountId, month])
+  <span class="fn">@@index</span>([monthDate])
+}
+
+<span class="kw">model</span> <span class="ty">PatrimonyHistory</span> {
+  id           String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  accountId    String
+  account      <span class="ty">Account</span> <span class="fn">@relation</span>(fields: [accountId], references: [id], onDelete: Cascade)
+
+  month        String                    <span class="cm">// "Mar/25"</span>
+  monthDate    DateTime
+  patrimony    Float                     <span class="cm">// pat em R$</span>
+  movement     Float    <span class="fn">@default</span>(0)      <span class="cm">// mov (aportes/resgates)</span>
+
+  <span class="fn">@@unique</span>([accountId, month])
+  <span class="fn">@@index</span>([monthDate])
+}
+
+<span class="kw">model</span> <span class="ty">Strategy</span> {
+  id           String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  accountId    String
+  account      <span class="ty">Account</span> <span class="fn">@relation</span>(fields: [accountId], references: [id], onDelete: Cascade)
+
+  name         String                    <span class="cm">// "Pos Fixado", "Pre Fixado"</span>
+  percentage   Float
+  value        Float
+  referenceDate DateTime
+
+  <span class="fn">@@unique</span>([accountId, name, referenceDate])
+}</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 19</span>
+  </div>
+</div>
+
+<!-- ==================== 11 cont - SCHEMA ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">11 &mdash; Schema Prisma (cont.)</span>
+    <span class="page-header-right">pag. 20</span>
+  </div>
+
+  <h3>11.5 Ativos Externos (Client B+)</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">ExternalAsset</span> {
+  id           String    <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  clientId     String
+  client       <span class="ty">Client</span>   <span class="fn">@relation</span>(fields: [clientId], references: [id], onDelete: Cascade)
+
+  category     String                   <span class="cm">// "mutuos", "alternativos", "contaDolar", "imoveis"</span>
+  name         String
+  value        Float
+  currency     String   <span class="fn">@default</span>("BRL")
+  maturityDate DateTime?
+  description  String?
+  referenceDate DateTime
+
+  <span class="fn">@@index</span>([clientId])
+}</code></pre>
+
+  <h3>11.6 Dados Macro e Benchmarks</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">MacroSnapshot</span> {
+  id           String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  capturedAt   DateTime <span class="fn">@default</span>(now())
+
+  <span class="cm">// Selic</span>
+  selicRate    Float?                   <span class="cm">// % a.a.</span>
+  cdiAnnual    Float?
+  cdiMonthly   Float?
+  cdi12m       Float?
+
+  <span class="cm">// IPCA</span>
+  ipcaMonthly  Float?
+  ipca12m      Float?
+
+  <span class="cm">// Cambio</span>
+  usdBrl       Float?
+  usdBrlYtd    Float?
+
+  <span class="cm">// Bolsa</span>
+  ibovespa     Float?
+  ibovespaYtd  Float?
+  sp500        Float?
+  sp500Ytd     Float?
+
+  <span class="cm">// Outros</span>
+  goldUsd      Float?
+  bitcoinUsd   Float?
+  dxy          Float?
+  vix          Float?
+  oil          Float?
+  us10y        Float?
+
+  <span class="cm">// Focus</span>
+  focusIpca    Float?
+  focusSelic   Float?
+  focusPib     Float?
+  focusCambio  Float?
+
+  <span class="fn">@@index</span>([capturedAt])
+}
+
+<span class="kw">model</span> <span class="ty">Benchmark</span> {
+  id            String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  clientId      String
+  referenceDate DateTime
+
+  cdiMonth      Float?
+  cdiYtd        Float?
+  cdi12m        Float?
+  cdi24m        Float?
+  ibovMonth     Float?
+  ibovYtd       Float?
+  ipcaMonth     Float?
+  ipcaYtd       Float?
+  dolarMonth    Float?
+  dolarYtd      Float?
+
+  <span class="fn">@@unique</span>([clientId, referenceDate])
+}
+
+<span class="kw">model</span> <span class="ty">PortfolioSnapshot</span> {
+  id            String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  clientId      String
+  client        <span class="ty">Client</span>  <span class="fn">@relation</span>(fields: [clientId], references: [id])
+  referenceDate DateTime
+
+  <span class="cm">// Consolidado (calculados pelo backend)</span>
+  totalPatrimony    Float
+  totalGainMonth    Float
+  weightedReturn    Float    <span class="cm">// wRent</span>
+  weightedCdiPct    Float    <span class="cm">// wCDI</span>
+  weightedReturnYtd Float?
+  weightedCdiYtd    Float?
+  volatility        Float?
+  hhi               Float?
+  weightedTer       Float?
+  weightedDuration  Float?
+  totalDv01         Float?
+
+  createdAt    DateTime <span class="fn">@default</span>(now())
+
+  <span class="fn">@@unique</span>([clientId, referenceDate])
+  <span class="fn">@@index</span>([clientId, referenceDate])
+}</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 20</span>
+  </div>
+</div>
+
+<!-- ==================== 11 cont - SCHEMA ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">11 &mdash; Schema Prisma (cont.)</span>
+    <span class="page-header-right">pag. 21</span>
+  </div>
+
+  <h3>11.7 Auditoria e Relatorios</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">Report</span> {
+  id            String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  clientId      String
+  client        <span class="ty">Client</span>  <span class="fn">@relation</span>(fields: [clientId], references: [id])
+
+  referenceDate DateTime
+  generatedAt   DateTime <span class="fn">@default</span>(now())
+  type          String   <span class="fn">@default</span>("monthly") <span class="cm">// monthly, quarterly, annual</span>
+  pdfUrl        String?                         <span class="cm">// URL do PDF gerado</span>
+  watermark     String?                         <span class="cm">// "CONFIDENCIAL" ou null</span>
+
+  <span class="fn">@@index</span>([clientId, referenceDate])
+}
+
+<span class="kw">model</span> <span class="ty">AuditLog</span> {
+  id         String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  userId     String
+  action     String                              <span class="cm">// "IMPORT_DATA", "GENERATE_PDF", etc</span>
+  entity     String                              <span class="cm">// "Client", "Position", etc</span>
+  entityId   String?
+  details    Json?                               <span class="cm">// metadata livre</span>
+  createdAt  DateTime <span class="fn">@default</span>(now())
+
+  <span class="fn">@@index</span>([userId])
+  <span class="fn">@@index</span>([createdAt])
+}
+
+<span class="kw">model</span> <span class="ty">FocusProjection</span> {
+  id          String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  capturedAt  DateTime <span class="fn">@default</span>(now())
+
+  meeting     String                             <span class="cm">// "R2/2026"</span>
+  indicator   String                             <span class="cm">// "Selic", "IPCA"</span>
+  median      Float
+  respondents Int?
+
+  <span class="fn">@@unique</span>([meeting, indicator, capturedAt])
+  <span class="fn">@@index</span>([capturedAt])
+}</code></pre>
+
+  <h3>11.8 Diagrama de Relacoes</h3>
+  <pre><code>
+  User 1---* Client 1---* Account 1---* Position
+                 |             |---* MonthlyReturn
+                 |             |---* PatrimonyHistory
+                 |             +---* Strategy
+                 |
+                 |---* ExternalAsset
+                 |---* Report
+                 +---* PortfolioSnapshot
+
+  MacroSnapshot (independente, cron job)
+  FocusProjection (independente, cron job)
+  AuditLog (independente, registra tudo)
+  Benchmark (por client + referenceDate)
+  </code></pre>
+
+  <div class="tip">
+    <div class="tip-title">Dica de implementacao</div>
+    <strong>PortfolioSnapshot</strong> e a tabela mais importante &mdash; ela armazena os valores consolidados pre-calculados pelo backend (wRent, wCDI, HHI, TER, Duration, DV01). Recalcular a cada request seria custoso. O snapshot e gerado quando novos dados sao importados.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 21</span>
+  </div>
+</div>
+
+<!-- ==================== 12 ROADMAP ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">12 &mdash; Roadmap Backend</span>
+    <span class="page-header-right">pag. 22</span>
+  </div>
+
+  <h2><span class="section-num">12</span> Roadmap de Backend &mdash; Fases de Implementacao</h2>
+
+  <h3>Fase 1: Fundacao (Semanas 1-3)</h3>
+  <table>
+    <thead><tr><th>Task</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td>Setup NestJS + Prisma</td><td>Projeto com modules: auth, clients, positions, macro</td></tr>
+      <tr><td>PostgreSQL + migrations</td><td>Schema completo (secao 11), seed com dados atuais</td></tr>
+      <tr><td>Auth (JWT)</td><td>Login, roles (Admin, Advisor, Client, Viewer), guards</td></tr>
+      <tr><td>CRUD Clients</td><td>Endpoints: POST/GET/PATCH/DELETE /clients</td></tr>
+      <tr><td>CRUD Accounts</td><td>Endpoints: /clients/:id/accounts</td></tr>
+      <tr><td>CRUD Positions</td><td>Endpoints: /accounts/:id/positions</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fase 2: Pipeline de Dados (Semanas 4-6)</h3>
+  <table>
+    <thead><tr><th>Task</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td>Macro Service</td><td>Cron job que puxa BCB + Yahoo + AwesomeAPI</td></tr>
+      <tr><td>Focus Service</td><td>Cron job que puxa projecoes Focus por reuniao</td></tr>
+      <tr><td>Upload de PDF</td><td>Endpoint: POST /imports/pdf com multer</td></tr>
+      <tr><td>Parser Service</td><td>Extrair tabelas do XP Performance (pdf-parse + IA)</td></tr>
+      <tr><td>Upload de Excel</td><td>Endpoint: POST /imports/xlsx (SheetJS)</td></tr>
+      <tr><td>Audit Log</td><td>Middleware que registra toda operacao</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fase 3: Calculos Server-Side (Semanas 7-10)</h3>
+  <table>
+    <thead><tr><th>Task</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td>PortfolioService</td><td>Consolidacao, wRent, wCDI, volatilidade, perfil</td></tr>
+      <tr><td>TaxService</td><td>taxCat, irBracket, comeCotas drag, gross equivalent</td></tr>
+      <tr><td>RiskService</td><td>Duration, DV01, stress tests, cenarios historicos</td></tr>
+      <tr><td>EfficiencyService</td><td>HHI, TER, concentracao</td></tr>
+      <tr><td>FipService</td><td>Simulacao MOIC, alpha vs CDI, projecao</td></tr>
+      <tr><td>PlanningService</td><td>Projecao 60 meses, solver USD, renda passiva</td></tr>
+      <tr><td>SnapshotService</td><td>Gera PortfolioSnapshot ao importar dados</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Fase 4: API REST + Frontend (Semanas 11-14)</h3>
+  <table>
+    <thead><tr><th>Task</th><th>Detalhe</th></tr></thead>
+    <tbody>
+      <tr><td>API Endpoints</td><td>GET /dashboard/:clientId (retorna tudo para o frontend)</td></tr>
+      <tr><td>PDF Service</td><td>Gerar PDF server-side (Puppeteer ou html-pdf)</td></tr>
+      <tr><td>Frontend refactor</td><td>Consumir API ao inves de importar JSON</td></tr>
+      <tr><td>Multi-tenant</td><td>Um unico deploy, dados filtrados por client</td></tr>
+      <tr><td>Testes</td><td>Unit tests para todos os services de calculo</td></tr>
+      <tr><td>CI/CD</td><td>GitHub Actions: lint, test, build, deploy</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <div class="tip-title">Endpoint principal sugerido</div>
+    <code>GET /api/v1/dashboard/:clientId?ref=2026-02-27</code> retorna um JSON com todas as secoes pre-calculadas: overview, allocation, strategy, benchmark, taxAlpha, hedge, efficiency, macro, planning. O frontend renderiza sem fazer nenhum calculo.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 22</span>
+  </div>
+</div>
+
+<!-- ==================== 13 CLAUDE API ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">13 &mdash; Claude API (Anthropic)</span>
+    <span class="page-header-right">pag. 23</span>
+  </div>
+
+  <h2><span class="section-num">13</span> Integracao Claude API &mdash; Chat IA + Insights</h2>
+
+  <p>O Patrimonium tera um chat inteligente integrado ao dashboard. O cliente/assessor podera fazer perguntas naturais sobre a carteira e receber respostas contextualizadas com dados reais. Alem disso, a IA gerara alertas e insights proativos.</p>
+
+  <h3>13.1 Modelos Disponiveis (Marco/2026)</h3>
+  <table>
+    <thead><tr><th>Modelo</th><th>Model ID</th><th>Contexto</th><th>Input $/1M</th><th>Output $/1M</th><th>Uso Recomendado</th></tr></thead>
+    <tbody>
+      <tr><td><strong>Claude Opus 4.6</strong></td><td><code>claude-opus-4-6</code></td><td>200K (1M beta)</td><td>$5.00</td><td>$25.00</td><td>Analises complexas, simulacoes, raciocinio profundo</td></tr>
+      <tr><td><strong>Claude Sonnet 4.6</strong></td><td><code>claude-sonnet-4-6</code></td><td>200K (1M beta)</td><td>$3.00</td><td>$15.00</td><td>Chat do dia-a-dia, perguntas rapidas</td></tr>
+      <tr><td><strong>Claude Haiku 4.5</strong></td><td><code>claude-haiku-4-5</code></td><td>200K</td><td>$1.00</td><td>$5.00</td><td>Classificacao, alertas automaticos, tarefas simples</td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <div class="tip-title">Estrategia de custo</div>
+    <strong>Haiku</strong> para alertas automaticos e classificacoes (roda em cron, alto volume, baixo custo). <strong>Sonnet</strong> para o chat interativo (equilibrio custo/qualidade). <strong>Opus</strong> apenas para simulacoes complexas sob demanda (ex: projecao FIP, solver USD).
+  </div>
+
+  <h3>13.2 SDK e Instalacao</h3>
+  <pre><code><span class="cm"># Instalar SDK TypeScript (usado com NestJS)</span>
+npm install @anthropic-ai/sdk
+
+<span class="cm"># Variavel de ambiente</span>
+ANTHROPIC_API_KEY=sk-ant-api03-xxxxxxxxxxxxx</code></pre>
+
+  <h3>13.3 Inicializacao no NestJS</h3>
+  <pre><code><span class="cm">// src/claude/claude.module.ts</span>
+<span class="kw">import</span> Anthropic <span class="kw">from</span> <span class="st">'@anthropic-ai/sdk'</span>;
+
+<span class="kw">const</span> client = <span class="kw">new</span> <span class="fn">Anthropic</span>();  <span class="cm">// usa ANTHROPIC_API_KEY do .env</span>
+
+<span class="cm">// Chamada basica</span>
+<span class="kw">const</span> response = <span class="kw">await</span> client.messages.create({
+  model: <span class="st">'claude-sonnet-4-6'</span>,      <span class="cm">// modelo para chat</span>
+  max_tokens: <span class="nu">16000</span>,
+  system: systemPrompt,               <span class="cm">// contexto da carteira (ver 13.5)</span>
+  messages: [
+    { role: <span class="st">'user'</span>, content: perguntaDoCliente }
+  ],
+});
+
+<span class="cm">// Extrair resposta</span>
+<span class="kw">for</span> (<span class="kw">const</span> block <span class="kw">of</span> response.content) {
+  <span class="kw">if</span> (block.type === <span class="st">'text'</span>) {
+    console.log(block.text);
+  }
+}</code></pre>
+
+  <h3>13.4 Streaming (Chat em Tempo Real)</h3>
+  <pre><code><span class="cm">// Para exibir resposta token-a-token no frontend</span>
+<span class="kw">const</span> stream = client.messages.stream({
+  model: <span class="st">'claude-sonnet-4-6'</span>,
+  max_tokens: <span class="nu">64000</span>,
+  system: systemPrompt,
+  messages: conversationHistory,
+});
+
+<span class="kw">for await</span> (<span class="kw">const</span> event <span class="kw">of</span> stream) {
+  <span class="kw">if</span> (event.type === <span class="st">'content_block_delta'</span> && event.delta.type === <span class="st">'text_delta'</span>) {
+    <span class="cm">// Enviar via WebSocket/SSE para o frontend</span>
+    socket.emit(<span class="st">'chat-delta'</span>, event.delta.text);
+  }
+}
+
+<span class="kw">const</span> finalMessage = <span class="kw">await</span> stream.finalMessage();
+<span class="cm">// Salvar no historico de conversa</span></code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 23</span>
+  </div>
+</div>
+
+<!-- ==================== 13 cont - SYSTEM PROMPT ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">13 &mdash; Claude API (cont.)</span>
+    <span class="page-header-right">pag. 24</span>
+  </div>
+
+  <h3>13.5 System Prompt &mdash; Contexto da Carteira</h3>
+  <p>O segredo da qualidade das respostas esta no system prompt. Ele deve conter os dados reais da carteira do cliente para que a IA responda com precisao.</p>
+
+  <pre><code><span class="cm">// Montado dinamicamente pelo backend a cada request</span>
+<span class="kw">const</span> systemPrompt = <span class="st">`
+Voce e o assistente financeiro do Patrimonium, uma plataforma de
+inteligencia patrimonial. Responda de forma direta, com dados numericos
+e tom de mercado. Use formatacao em R$ brasileiro.
+
+## Dados da Carteira (ref. ${snapshot.referenceDate})
+- Patrimonio Total: R$ ${fmt(snapshot.totalPatrimony)}
+- Retorno Mes: ${fmtPct(snapshot.weightedReturn)}
+- %CDI Mes: ${fmtPct(snapshot.weightedCdiPct)}
+- Retorno Ano: ${fmtPct(snapshot.weightedReturnYtd)}
+- Volatilidade: ${fmtPct(snapshot.volatility)}
+- HHI: ${snapshot.hhi} (${hhiClass})
+- Duration: ${snapshot.weightedDuration?.toFixed(2)} anos
+- DV01: R$ ${fmt(snapshot.totalDv01)}
+
+## Posicoes Atuais
+${positions.map(p => \`- \${p.shortName} (\${p.assetType}): R$ \${fmt(p.currentValue)} | \${p.rateString} | Liq: \${p.liquidity}\`).join('\\n')}
+
+## Dados Macro Atuais
+- Selic: ${macro.selicRate}% | CDI: ${macro.cdiAnnual}%
+- IPCA 12M: ${macro.ipca12m}% | Cambio: R$ ${macro.usdBrl}
+- Focus Selic Fim: ${macro.focusSelic}% | Focus IPCA: ${macro.focusIpca}%
+
+## Regras de IR
+- Ate 180 dias: 22.5% | Ate 360: 20% | Ate 720: 17.5% | Acima: 15%
+- CRA, CRI, LCI, LCA: isentos de IR
+- Fundos: come-cotas semestral (15%)
+- Acoes: 15% sobre ganho de capital
+
+## Instrucoes
+- Sempre use os dados acima para calculos, NAO invente numeros
+- Formate valores em R$ brasileiro
+- Quando perguntado sobre imposto, use as aliquotas reais da posicao
+- Quando perguntado sobre simulacao, mostre o calculo passo a passo
+- Alerte sobre riscos quando relevante
+`</span>;</code></pre>
+
+  <div class="warn">
+    <div class="warn-title">Importante: seguranca dos dados</div>
+    O system prompt contem dados sensiveis da carteira. Nunca logar o conteudo completo. Usar HTTPS em todas as chamadas. A API da Anthropic nao armazena dados de API &mdash; os dados nao sao usados para treinamento.
+  </div>
+
+  <h3>13.6 Casos de Uso do Chat</h3>
+  <table>
+    <thead><tr><th>Pergunta do Cliente</th><th>O que a IA faz</th><th>Dados Necessarios</th></tr></thead>
+    <tbody>
+      <tr><td>"Quanto pago de imposto se resgatar o CDB XP agora?"</td><td>Calcula IR pela faixa regressiva (diasCorridos) sobre o ganho</td><td>Position: total, rentMes, diasCorridos, taxa</td></tr>
+      <tr><td>"Se eu aplicar R$ 500k a IPCA+7%, quanto terei em 2 anos?"</td><td>Projecao com juros compostos, desconta IR no resgate</td><td>Macro: ipca12m, selicRate</td></tr>
+      <tr><td>"Qual o impacto se a Selic subir 1.5%?"</td><td>Usa DV01 para calcular perda/ganho por posicao</td><td>Positions: durMod, dv01, total</td></tr>
+      <tr><td>"Tenho fundos duplicados?"</td><td>Compara fundos por classe, gestora, taxa, performance</td><td>All positions with metadata</td></tr>
+      <tr><td>"Qual fundo rende mais para a mesma caracteristica?"</td><td>Ranking por %CDI dentro da mesma classe/segmento</td><td>Positions: classe, segmento, pctCDI</td></tr>
+      <tr><td>"Quanto preciso aportar por mes para chegar a R$ 10M?"</td><td>Solver com taxa e horizonte, descontando IR e inflacao</td><td>Snapshot + macro</td></tr>
+    </tbody>
+  </table>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 24</span>
+  </div>
+</div>
+
+<!-- ==================== 13 cont - TOOLS ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">13 &mdash; Claude API (cont.)</span>
+    <span class="page-header-right">pag. 25</span>
+  </div>
+
+  <h3>13.7 Tool Use &mdash; Ferramentas para a IA</h3>
+  <p>A Claude API suporta <strong>tool use</strong> (function calling): a IA pode chamar funcoes do backend para buscar dados ou executar calculos. Isso e mais preciso que colocar tudo no system prompt.</p>
+
+  <pre><code><span class="kw">import</span> Anthropic <span class="kw">from</span> <span class="st">'@anthropic-ai/sdk'</span>;
+<span class="kw">import</span> { betaZodTool } <span class="kw">from</span> <span class="st">'@anthropic-ai/sdk/helpers/beta/zod'</span>;
+<span class="kw">import</span> { z } <span class="kw">from</span> <span class="st">'zod'</span>;
+
+<span class="cm">// Definir ferramentas que a IA pode chamar</span>
+<span class="kw">const</span> calcularIR = <span class="fn">betaZodTool</span>({
+  name: <span class="st">'calcular_imposto_resgate'</span>,
+  description: <span class="st">'Calcula o IR devido ao resgatar uma posicao especifica'</span>,
+  inputSchema: z.object({
+    positionId: z.string().describe(<span class="st">'ID da posicao a resgatar'</span>),
+    valorResgate: z.number().optional().describe(<span class="st">'Valor parcial (default: total)'</span>),
+  }),
+  run: <span class="kw">async</span> ({ positionId, valorResgate }) =&gt; {
+    <span class="cm">// Buscar posicao no banco via Prisma</span>
+    <span class="kw">const</span> pos = <span class="kw">await</span> prisma.position.findUnique({ where: { id: positionId } });
+    <span class="kw">const</span> valor = valorResgate || pos.currentValue;
+    <span class="kw">const</span> ganho = valor * (pos.returnMonth / <span class="nu">100</span>) * (pos.daysToMaturity / <span class="nu">30</span>);
+    <span class="kw">const</span> aliquota = irBracket(pos.daysToMaturity);
+    <span class="kw">const</span> imposto = ganho * aliquota;
+    <span class="kw">return</span> JSON.stringify({ posicao: pos.shortName, valorResgate: valor,
+      ganhoEstimado: ganho, aliquota, imposto, liquido: valor - imposto });
+  },
+});
+
+<span class="kw">const</span> simularAplicacao = <span class="fn">betaZodTool</span>({
+  name: <span class="st">'simular_aplicacao'</span>,
+  description: <span class="st">'Simula o retorno de uma aplicacao com taxa, prazo e valor'</span>,
+  inputSchema: z.object({
+    valor: z.number().describe(<span class="st">'Valor a aplicar em R$'</span>),
+    taxaAnual: z.number().describe(<span class="st">'Taxa anual em % (ex: 14.5)'</span>),
+    meses: z.number().describe(<span class="st">'Prazo em meses'</span>),
+    indexador: z.enum([<span class="st">'CDI'</span>, <span class="st">'IPCA'</span>, <span class="st">'PRE'</span>]).optional(),
+  }),
+  run: <span class="kw">async</span> ({ valor, taxaAnual, meses, indexador }) =&gt; {
+    <span class="kw">const</span> taxaMensal = Math.pow(<span class="nu">1</span> + taxaAnual / <span class="nu">100</span>, <span class="nu">1</span> / <span class="nu">12</span>) - <span class="nu">1</span>;
+    <span class="kw">const</span> bruto = valor * Math.pow(<span class="nu">1</span> + taxaMensal, meses);
+    <span class="kw">const</span> ganho = bruto - valor;
+    <span class="kw">const</span> dias = meses * <span class="nu">30</span>;
+    <span class="kw">const</span> ir = ganho * irBracket(dias);
+    <span class="kw">return</span> JSON.stringify({ valorInicial: valor, bruto, ganho, ir,
+      liquido: bruto - ir, rentLiquida: ((bruto - ir) / valor - <span class="nu">1</span>) * <span class="nu">100</span> });
+  },
+});
+
+<span class="kw">const</span> buscarPosicoes = <span class="fn">betaZodTool</span>({
+  name: <span class="st">'buscar_posicoes'</span>,
+  description: <span class="st">'Busca posicoes da carteira por filtros (classe, tipo, gestora)'</span>,
+  inputSchema: z.object({
+    classe: z.string().optional(),
+    tipo: z.string().optional(),
+    gestora: z.string().optional(),
+    orderBy: z.enum([<span class="st">'valor'</span>, <span class="st">'rentabilidade'</span>, <span class="st">'pctCDI'</span>]).optional(),
+  }),
+  run: <span class="kw">async</span> (filters) =&gt; {
+    <span class="kw">const</span> positions = <span class="kw">await</span> prisma.position.findMany({
+      where: { ...filters, account: { client: { id: clientId } } },
+      orderBy: { [filters.orderBy || <span class="st">'currentValue'</span>]: <span class="st">'desc'</span> },
+    });
+    <span class="kw">return</span> JSON.stringify(positions);
+  },
+});</code></pre>
+
+  <h3>13.8 Executando com Tool Runner</h3>
+  <pre><code><span class="cm">// O SDK gerencia o loop automaticamente: chama a API, executa tools, repete</span>
+<span class="kw">const</span> finalMessage = <span class="kw">await</span> client.beta.messages.toolRunner({
+  model: <span class="st">'claude-sonnet-4-6'</span>,
+  max_tokens: <span class="nu">16000</span>,
+  system: systemPrompt,
+  tools: [calcularIR, simularAplicacao, buscarPosicoes],
+  messages: [
+    { role: <span class="st">'user'</span>, content: <span class="st">'Quanto pago de IR se resgatar o CDB do Banco Master?'</span> }
+  ],
+});
+
+<span class="cm">// A IA automaticamente:
+// 1. Chama buscarPosicoes({ tipo: "CDB", gestora: "Banco Master" })
+// 2. Recebe os dados
+// 3. Chama calcularIR({ positionId: "xxx" })
+// 4. Formata a resposta com os numeros reais</span></code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 25</span>
+  </div>
+</div>
+
+<!-- ==================== 13 cont - INSIGHTS + ALERTS ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">13 &mdash; Claude API (cont.)</span>
+    <span class="page-header-right">pag. 26</span>
+  </div>
+
+  <h3>13.9 Insights e Alertas Automaticos</h3>
+  <p>Alem do chat reativo, a IA roda periodicamente (cron job) para gerar insights proativos sobre a carteira.</p>
+
+  <pre><code><span class="cm">// Servico de alertas (roda 1x/dia ou apos importacao de dados)</span>
+<span class="kw">async function</span> <span class="fn">generateAlerts</span>(clientId: string) {
+  <span class="kw">const</span> snapshot = <span class="kw">await</span> getLatestSnapshot(clientId);
+  <span class="kw">const</span> positions = <span class="kw">await</span> getPositions(clientId);
+
+  <span class="kw">const</span> response = <span class="kw">await</span> client.messages.create({
+    model: <span class="st">'claude-haiku-4-5'</span>,  <span class="cm">// Haiku: rapido e barato para alertas</span>
+    max_tokens: <span class="nu">4000</span>,
+    system: <span class="st">`Voce e um analista de carteira. Analise os dados abaixo e retorne
+APENAS alertas relevantes em JSON. Categorias: "oportunidade", "risco", "otimizacao".
+Nao invente dados. Use apenas os numeros fornecidos.`</span>,
+    messages: [{
+      role: <span class="st">'user'</span>,
+      content: <span class="st">`Snapshot: ${</span>JSON.stringify(snapshot)<span class="st">}
+Posicoes: ${</span>JSON.stringify(positions)<span class="st">}`</span>
+    }],
+    output_config: {
+      format: {
+        type: <span class="st">'json_schema'</span>,
+        json_schema: {
+          name: <span class="st">'alerts'</span>,
+          schema: {
+            type: <span class="st">'object'</span>,
+            properties: {
+              alerts: {
+                type: <span class="st">'array'</span>,
+                items: {
+                  type: <span class="st">'object'</span>,
+                  properties: {
+                    category: { type: <span class="st">'string'</span>, enum: [<span class="st">'oportunidade'</span>, <span class="st">'risco'</span>, <span class="st">'otimizacao'</span>] },
+                    title: { type: <span class="st">'string'</span> },
+                    description: { type: <span class="st">'string'</span> },
+                    impact: { type: <span class="st">'string'</span> },
+                    action: { type: <span class="st">'string'</span> },
+                  },
+                  required: [<span class="st">'category'</span>, <span class="st">'title'</span>, <span class="st">'description'</span>, <span class="st">'impact'</span>, <span class="st">'action'</span>],
+                  additionalProperties: <span class="kw">false</span>,
+                },
+              },
+            },
+            required: [<span class="st">'alerts'</span>],
+            additionalProperties: <span class="kw">false</span>,
+          },
+        },
+      },
+    },
+  });
+
+  <span class="kw">return</span> JSON.parse(response.content[<span class="nu">0</span>].text);
+}</code></pre>
+
+  <h3>13.10 Exemplos de Alertas que a IA Geraria</h3>
+  <table>
+    <thead><tr><th>Categoria</th><th>Alerta</th><th>Impacto</th></tr></thead>
+    <tbody>
+      <tr><td><span class="tag tag-green">Otimizacao</span></td><td>Fundos duplicados: XP Ref DI e Selection RF tem mesma classe e gestora, mas XP Ref rende 102% CDI vs Selection 108%</td><td>Migrar R$ 500k para Selection = +R$ 3k/ano</td></tr>
+      <tr><td><span class="tag tag-amber">Risco</span></td><td>Concentracao alta: 35% do patrimonio em um unico emissor (CDB Master)</td><td>HHI acima de 2500, risco de credito concentrado</td></tr>
+      <tr><td><span class="tag tag-green">Oportunidade</span></td><td>CRA vencendo em 30 dias rende CDI+0.5%; ha CRA disponivel a CDI+1.8%</td><td>Ganho de 130bps no reinvestimento</td></tr>
+      <tr><td><span class="tag tag-red">Risco</span></td><td>Duration da carteira (2.8 anos) acima do target (2.0). Se Selic subir +150bp, perda de R$ 42k</td><td>Reduzir pre-fixados ou encurtar prazos</td></tr>
+      <tr><td><span class="tag tag-green">Otimizacao</span></td><td>R$ 800k em fundos tributados poderia migrar para CRI/CRA isentos. Gross equivalent: CDI+1.2% isento = CDI+1.41% tributado</td><td>Economia de R$ 12k/ano em IR</td></tr>
+    </tbody>
+  </table>
+
+  <h3>13.11 Thinking Adaptativo (Simulacoes Complexas)</h3>
+  <pre><code><span class="cm">// Para perguntas complexas, usar Opus com thinking adaptativo</span>
+<span class="kw">const</span> response = <span class="kw">await</span> client.messages.create({
+  model: <span class="st">'claude-opus-4-6'</span>,
+  max_tokens: <span class="nu">16000</span>,
+  thinking: { type: <span class="st">'adaptive'</span> },  <span class="cm">// IA decide quando pensar mais</span>
+  system: systemPromptComDadosCompletos,
+  messages: [{
+    role: <span class="st">'user'</span>,
+    content: <span class="st">'Se eu resgatar R$ 2M do CDB e aplicar em NTN-B 2035 a IPCA+7%, '</span>
+           + <span class="st">'qual seria o impacto na duration, no DV01 e no IR em 3 cenarios de juros?'</span>
+  }],
+});
+
+<span class="cm">// Blocos de thinking mostram o raciocinio da IA (opcional exibir)</span>
+<span class="kw">for</span> (<span class="kw">const</span> block <span class="kw">of</span> response.content) {
+  <span class="kw">if</span> (block.type === <span class="st">'thinking'</span>) console.log(<span class="st">'[Raciocinio]'</span>, block.thinking);
+  <span class="kw">if</span> (block.type === <span class="st">'text'</span>) console.log(<span class="st">'[Resposta]'</span>, block.text);
+}</code></pre>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 26</span>
+  </div>
+</div>
+
+<!-- ==================== 13 cont - ARCHITECTURE + COSTS ==================== -->
+<div class="page">
+  <div class="page-header">
+    <span class="page-header-left">Patrimonium &middot; Handoff Tecnico</span>
+    <span class="page-header-center">13 &mdash; Claude API (cont.)</span>
+    <span class="page-header-right">pag. 27</span>
+  </div>
+
+  <h3>13.12 Arquitetura do Modulo de IA</h3>
+  <pre><code>
+  [Frontend React]
+       |
+       | WebSocket / SSE (streaming)
+       v
+  [NestJS Gateway]
+       |
+       |-- ChatController  (POST /api/v1/chat/:clientId)
+       |-- AlertsController (GET /api/v1/alerts/:clientId)
+       |
+       v
+  [ClaudeService]
+       |
+       |-- buildSystemPrompt(clientId)  <span class="cm">// monta contexto com dados reais</span>
+       |-- chat(clientId, message)      <span class="cm">// chamada com tools</span>
+       |-- generateAlerts(clientId)     <span class="cm">// cron job com Haiku</span>
+       |-- simulate(clientId, params)   <span class="cm">// Opus para simulacoes</span>
+       |
+       v
+  [Anthropic API]  &lt;---&gt;  [Tool Runner]  &lt;---&gt;  [Prisma/PostgreSQL]
+  </code></pre>
+
+  <h3>13.13 Tabelas Prisma Adicionais</h3>
+  <pre class="prisma-schema"><code><span class="kw">model</span> <span class="ty">ChatSession</span> {
+  id         String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  clientId   String
+  userId     String
+  createdAt  DateTime <span class="fn">@default</span>(now())
+  messages   <span class="ty">ChatMessage</span>[]
+
+  <span class="fn">@@index</span>([clientId, createdAt])
+}
+
+<span class="kw">model</span> <span class="ty">ChatMessage</span> {
+  id         String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  sessionId  String
+  session    <span class="ty">ChatSession</span> <span class="fn">@relation</span>(fields: [sessionId], references: [id])
+  role       String                <span class="cm">// "user" | "assistant"</span>
+  content    String                <span class="cm">// texto da mensagem</span>
+  toolCalls  Json?                 <span class="cm">// tools chamadas (audit)</span>
+  model      String?               <span class="cm">// modelo usado</span>
+  tokens     Int?                  <span class="cm">// tokens consumidos</span>
+  costUsd    Float?                <span class="cm">// custo estimado em USD</span>
+  createdAt  DateTime <span class="fn">@default</span>(now())
+
+  <span class="fn">@@index</span>([sessionId, createdAt])
+}
+
+<span class="kw">model</span> <span class="ty">Alert</span> {
+  id          String   <span class="fn">@id</span> <span class="fn">@default</span>(uuid())
+  clientId    String
+  category    String               <span class="cm">// "oportunidade" | "risco" | "otimizacao"</span>
+  title       String
+  description String
+  impact      String
+  action      String
+  isRead      Boolean  <span class="fn">@default</span>(false)
+  isDismissed Boolean  <span class="fn">@default</span>(false)
+  createdAt   DateTime <span class="fn">@default</span>(now())
+
+  <span class="fn">@@index</span>([clientId, isRead])
+  <span class="fn">@@index</span>([createdAt])
+}</code></pre>
+
+  <h3>13.14 Estimativa de Custos</h3>
+  <table>
+    <thead><tr><th>Uso</th><th>Modelo</th><th>Tokens/req</th><th>Reqs/mes</th><th>Custo/mes</th></tr></thead>
+    <tbody>
+      <tr><td>Chat interativo (assessor)</td><td>Sonnet 4.6</td><td>~5K in + ~2K out</td><td>~200</td><td>~$9</td></tr>
+      <tr><td>Alertas automaticos (3 clients)</td><td>Haiku 4.5</td><td>~8K in + ~1K out</td><td>~90</td><td>~$1.20</td></tr>
+      <tr><td>Simulacoes complexas</td><td>Opus 4.6</td><td>~10K in + ~4K out</td><td>~20</td><td>~$3</td></tr>
+      <tr><td colspan="4" style="text-align:right; font-weight:700;">Total estimado</td><td><strong>~$13/mes</strong></td></tr>
+    </tbody>
+  </table>
+
+  <div class="tip">
+    <div class="tip-title">Passo a passo para o dev</div>
+    <ol style="margin-top:4px;">
+      <li>Criar conta em <code>console.anthropic.com</code> e gerar API key</li>
+      <li><code>npm install @anthropic-ai/sdk zod</code></li>
+      <li>Criar <code>ClaudeModule</code> no NestJS com <code>ClaudeService</code></li>
+      <li>Implementar <code>buildSystemPrompt()</code> que puxa dados do Prisma</li>
+      <li>Criar 3-5 tools (calcularIR, simularAplicacao, buscarPosicoes, stressTest, compararFundos)</li>
+      <li>Endpoint <code>POST /chat</code> com WebSocket para streaming</li>
+      <li>Cron job diario para alertas com Haiku + structured output</li>
+      <li>Tabelas ChatSession, ChatMessage, Alert no Prisma</li>
+      <li>Frontend: componente de chat com streaming + painel de alertas</li>
+    </ol>
+  </div>
+
+  <div class="tip" style="margin-top: 8px;">
+    <div class="tip-title">Prompt Caching (economia)</div>
+    O system prompt com dados da carteira e grande (~4K tokens). Usar <code>cache_control: { type: "ephemeral" }</code> para cachear por 5 minutos. Em uma sessao de chat com varias perguntas, o custo do system prompt cai 90% a partir da 2a mensagem.
+  </div>
+
+  <div class="footer">
+    <span>Patrimonium</span>
+    <span>Confidencial</span>
+    <span>pag. 27</span>
+  </div>
+</div>
+
+<!-- ==================== ENCERRAMENTO ==================== -->
+<div class="page" style="display:flex; flex-direction:column; justify-content:center; align-items:center; text-align:center; background: linear-gradient(160deg, var(--navy) 0%, #162d50 50%, var(--teal) 100%); color:#fff;">
+  <div style="font-size: 8px; letter-spacing: 0.2em; text-transform: uppercase; color: rgba(255,255,255,0.5); margin-bottom: 40px;">Documento de Referencia</div>
+  <div style="font-size: 28px; font-weight: 800; margin-bottom: 8px;">Patrimonium</div>
+  <div style="width: 50px; height: 3px; background: var(--green); margin: 0 auto 20px; border-radius: 2px;"></div>
+  <div style="font-size: 12px; color: rgba(255,255,255,0.7); margin-bottom: 40px; max-width: 400px; line-height: 1.7;">
+    Este documento contem toda a logica de negocios, design system, calculos financeiros e proposta de arquitetura backend necessarios para escalar o Patrimonium.
+  </div>
+  <div style="font-size: 9px; color: rgba(255,255,255,0.4); line-height: 1.8;">
+    13 secoes &middot; 24 modelos financeiros &middot; 19 tabelas Prisma<br>
+    NestJS + Prisma + PostgreSQL + Claude API<br><br>
+    Classificacao: CONFIDENCIAL<br>
+    Versao 1.0 &middot; Marco 2026
+  </div>
+</div>
+
+</body>
+</html>
